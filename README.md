@@ -6,7 +6,7 @@
 
  - Você também vai aprender a armazenar dados offline com IndexedDB, encartar-se com a Fetch API, usar Babel para garantir a compatibilidade máxima de seu código e tornar o código ainda mais elegante com novos padrões de projetos.
 
- - JavaScript avançado I: ES6, orientação a objetos e padrões de projetos
+ - JavaScript Avançado I: ES6, orientação a objetos e padrões de projetos
  - JavaScript Avançado II: ES6, orientação a objetos e padrões de projetos
  - JavaScript Avançado III: ES6, orientação a objetos e padrões de projetos
 

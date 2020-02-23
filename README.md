@@ -1,7 +1,6 @@
-# ReactTraining
+# PASSO A PASSO
 
 ## 1 - Avançando em JavaScript
-
  
  - Para começar, você vai se aprofundar em JavaScript. Você vai utilizar o paradigma de Orientação a Objetos em aplicações práticas para resolver problemas, aplicará novos recursos de ECMASCRIPT 6, vai estruturar sua aplicação e utilizar padrões de projeto.
 

@@ -1,0 +1,176 @@
+@import '../assets/styles/colors.scss';
+@import '../assets/styles/mix.scss';
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  .form-full {
+    border-radius: 2px;
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .form-readme {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      .title {
+        color: $font_color_title;
+        text-shadow: 0 0 1px $font_color_title;
+        letter-spacing: 2px;
+        font-size: 25px;
+        margin: 5% 0 3% 0;
+      }
+      p {
+        color: $font_color_title;
+        width: 80%;
+        line-height: 18px;
+        text-shadow: 0 0 1px $font_color_title;
+        letter-spacing: 1px;
+        font-size: 14px;
+      }
+    }
+    .form {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      margin-top: 4%;
+      border-bottom: 1px solid $secundary_disabled;
+      padding-bottom: 20px;
+      label {
+        color: $font_color;
+        font-weight: bold;
+        margin-bottom: 6px;
+        text-shadow: 0 0 0.5px $font_color;
+        letter-spacing: 1px;
+      }
+      .form-control {
+        height: 50px;
+        padding: 0 4%;
+        border-radius: 4px;
+        color: $font_color;
+        margin-bottom: 25px;
+        border: 1px solid $secundary_disabled;
+        &::placeholder {
+          color: $secundary_disabled;
+          font-weight: bold;
+          font-size: 12px;
+        }
+        &:focus {
+          box-shadow: 0 0 2px $primary;
+        }
+      }
+      .btn-submited {
+        height: 55px;
+        border: none;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 5%;
+        align-items: center;
+        align-content: center;
+        cursor: pointer;
+        background-color: $primary;
+        &.disabled {
+          background-color: $secundary_disabled;
+        }
+        span {
+          color: #FFF;
+          font-size: 16px;
+          font-weight: bold;
+          letter-spacing: 3px;
+        }
+        i {
+          color: #FFF;
+          font-size: 10px;
+          font-weight: bold;
+          background-size: cover;
+        }
+      }
+    }
+    .form-login-alternative {
+      width: 80%;
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+      p {
+        color: $font_color;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+      }
+      .form-action {
+        display: flex;
+        .btn-github, .btn-google {
+          width: 50%;
+          height: 50px;
+          border: 1px solid $secundary_disabled;
+          background-color: transparent;
+          border-radius: 4px;
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          cursor: pointer;
+          &:hover {
+            border: 1px solid $secundary_disabled_hover;
+          }
+          span {
+            font-weight: bold;
+            font-size: 16px;
+            color: $font_color;
+            letter-spacing: 1px;
+          }
+          i {
+            font-size: 26px;
+          }
+        }
+        .btn-github {
+          margin-right: 10px;
+        }
+        .btn-google {
+          .form-img {
+            width: 24px;
+            height: 24px;
+            background-size: cover;
+          }
+        }
+      }
+    }
+    small {
+      margin: 10%;
+      width: 80%;
+      color: $font_color;
+      a {
+        color: $font_color;
+        font-weight: bold;
+      }
+    }
+  }
+  .login {
+    color: $font_color;
+    letter-spacing: 1px;
+    text-shadow: 0 0 1px $font_color;
+    margin: auto 0;
+    a {
+      color: $primary;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 16px;
+    }
+  }
+}
+
+@include table {
+  .form-login {
+    display: none;
+  }
+}
+
+@include mobile {
+  .form-login {
+    margin: 0 auto;
+  }
+}

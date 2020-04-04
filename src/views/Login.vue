@@ -2,10 +2,8 @@
   <div class="login">
     <Header v-if="header.length" :titleHeader="header" />
     <div class="login-details">
-      <Items v-if="listItems.length || title" :list="listItems" :title="title" />
-      <form class="form">
-        <h2>FORM</h2>
-      </form>
+      <!-- <Items v-if="listItems.length || title" :list="listItems" :title="title" /> -->
+      <FormLogin class="form" />
     </div>
   </div>  
 </template>
@@ -17,13 +15,15 @@ import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import Items from '../components/Items.vue';
 import Header from '../components/Header.vue';
+import FormLogin from '../components/FormLogin.vue';
 
 import { Item } from '../model/List';
 
 @Component({
   components: {
     Header,
-    Items
+    Items,
+    FormLogin
   }
 })
 export default class Login extends Vue {
@@ -51,5 +51,5 @@ export default class Login extends Vue {
 </script>
 
 <style lang="sass" scoped>
-  @import './login.scss';
+  @import './Login.scss';
 </style>

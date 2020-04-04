@@ -1,0 +1,46 @@
+.item {
+  width: 100%;
+  .login-readme {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    li, h3 {
+      padding-left: 20%;
+    }
+    h3 {
+      width: 280px;
+      margin-bottom: 30px;
+    }
+    .login-item {
+      width: 280px;
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      text-align: left;
+      line-height: 22px;
+      &:nth-child(1) {
+        color: blueviolet;
+        opacity: 0.6;
+      }
+      &:nth-child(2) {
+        color: rgb(113, 50, 172);
+      }
+      &:nth-child(3) {
+        color: rgb(17, 177, 115);
+      }
+      p {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      i {
+        font-size: 25px;
+        margin-right: 20px;
+      }
+    }
+  }
+
+  
+}

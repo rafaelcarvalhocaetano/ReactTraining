@@ -1,12 +1,8 @@
 <template>
   <div class="login">
-    <div class="login-header">
-      <p>pipefy</p>
-    </div>
-
+    <Header :titleHeader="header" />
     <div class="login-details">
-      <Items v-if="listItems.length || title" :list="listItems" :title="title"/>
-
+      <Items v-if="listItems.length || title" :list="listItems" :title="title" />
       <form class="form">
         <h2>FORM</h2>
       </form>
@@ -18,12 +14,16 @@
 <script lang="ts">
 
 import Vue from 'vue';
+
 import { Component } from 'vue-property-decorator';
 import Items from '../components/Items.vue';
+import Header from '../components/Header.vue';
+
 import { Item } from '../model/List';
 
 @Component({
   components: {
+    Header,
     Items
   }
 })
@@ -47,6 +47,7 @@ export default class Login extends Vue {
     }
   ];
   public title: string = 'Obtenha um impacto maior e traga ordem ao seu processo';
+  public header = 'pipefy';
 }
 </script>
 

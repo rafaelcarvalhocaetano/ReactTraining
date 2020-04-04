@@ -1,8 +1,8 @@
 <template>
   <div class="item">
-    <ul class="login-readme">
+    <ul class="item-readme">
       <h3>{{ title }}</h3>
-      <li class="login-item" v-for="(item, i) in list" :key="i">
+      <li class="item-item" v-for="(item, i) in list" :key="i">
         <i :class="item.icon"></i>
         <p>{{ item.description }}</p>
       </li>

@@ -2,7 +2,7 @@
   <div class="login">
     <Header v-if="header.length" :titleHeader="header" />
     <div class="login-details">
-      <!-- <Items v-if="listItems.length || title" :list="listItems" :title="title" /> -->
+      <Items class="item" v-if="listItems.length || title" :list="listItems" :title="title" />
       <FormLogin class="form" />
     </div>
   </div>  

@@ -1,13 +1,12 @@
 <template>
   <div class="login">
-    <Header :titleHeader="header" />
+    <Header v-if="header.length" :titleHeader="header" />
     <div class="login-details">
       <Items v-if="listItems.length || title" :list="listItems" :title="title" />
       <form class="form">
         <h2>FORM</h2>
       </form>
     </div>
-    
   </div>  
 </template>
 

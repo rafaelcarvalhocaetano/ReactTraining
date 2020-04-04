@@ -8,12 +8,11 @@
 
 import Vue from 'vue';
 
-import { Component } from 'vue-property-decorator';
+import { Component, Prop } from 'vue-property-decorator';
 
 @Component
 export default class Header extends Vue {
-  @Prop() titleHeader = null;
-
+  @Prop() titleHeader;
 }
 </script>
 

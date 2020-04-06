@@ -7,8 +7,8 @@
       </div>
       <form class="form">
         <label for="email">Seu email de trabalho</label>
-        <input type="text" class="form-control" placeholder="voce@empresa.com.br" id="email" name="email">
-        <button class="btn-submited" :class="{'disabled': true}">
+        <input type="text" class="form-control" placeholder="voce@empresa.com.br" id="email" name="email" v-model="email">
+        <button class="btn-submited" :class="{'disabled': flag}">
           <span></span>
           <span>Vamos começar</span>
           <i class="fas fa-chevron-right"></i>
@@ -37,9 +37,21 @@
   import Vue from 'vue'
   import { Component } from 'vue-property-decorator';
 
-
   @Component
   export default class FormLogin extends Vue {
+
+    public email = null;
+    public flag = false;
+
+    created() {
+
+    }
+
+    validator() {
+      if (this.email === null) {
+        this.flag = false;
+      }
+    }
 
   }
 </script>

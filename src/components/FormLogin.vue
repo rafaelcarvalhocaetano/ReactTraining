@@ -5,15 +5,16 @@
         <h3 class="title">Bem-vindo a bordo!</h3>
         <p>Organize seu time, customize seus processos e ganhe tempo com o Pipefy!</p>
       </div>
-      <form class="form">
+      <div class="form">
         <label for="email">Seu email de trabalho</label>
-        <input type="text" class="form-control" placeholder="voce@empresa.com.br" id="email" name="email" v-model="email">
-        <button class="btn-submited" :class="{'disabled': flag}">
+        <input type="text" class="form-control" placeholder="voce@empresa.com.br" 
+        id="email" name="email" v-model.trim.lazy="email" :input="getValue()">
+        <button class="btn-submited" :class="{'disabled': !flag }" @click="router">
           <span></span>
           <span>Vamos começar</span>
           <i class="fas fa-chevron-right"></i>
         </button>
-      </form>
+      </div>
       <div class="form-login-alternative">
         <p>Ou continue com:</p>
         <div class="form-action">
@@ -29,7 +30,7 @@
       </div>
       <small>Ao criar uma conta você estará concordadndo com a <a href="#">Politica de Privacidade. Termos e Condicões</a> e uso de Cookies</small>
     </div>
-    <p class="login">Já tem uma conta Pipefy? <a href="#">Acessar</a></p>
+    <p class="login">Já tem uma conta Pipefy? <router-link to="/access">Acessar</router-link></p>
   </div>
 </template>
 
@@ -40,18 +41,22 @@
   @Component
   export default class FormLogin extends Vue {
 
-    public email = null;
+    public email: string = '';
     public flag = false;
 
-    created() {
-
-    }
-
-    validator() {
-      if (this.email === null) {
-        this.flag = false;
+    public getValue() {
+      if (this.email !== null) {
+        const emailTest = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
+        if (emailTest.test(this.email)) {
+          this.flag = true;
+        }
       }
     }
+
+    public router() {
+      this.$router.push('/register');
+    }
+
 
   }
 </script>

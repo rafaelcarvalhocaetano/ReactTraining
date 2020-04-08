@@ -1,0 +1,81 @@
+@import '../../assets/styles/colors.scss';
+@import '../../assets/styles/mix.scss';
+
+.selection {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-top: 4%;
+  border-bottom: 1px solid $secundary_disabled;
+  padding-bottom: 20px;
+  .btn-selected {
+    height: 50px;
+    padding: 0 4%;
+    border-radius: 4px;
+    color: $font_color;
+    margin-bottom: 25px;
+    border: 1px solid $secundary_disabled;
+
+    .bounce-enter-active {
+      animation: bounce-in .5s;
+    }
+    .bounce-leave-active {
+      animation: bounce-in .5s reverse;
+    }
+
+    &::placeholder {
+      color: $secundary_disabled;
+      font-weight: bold;
+      font-size: 12px;
+    }
+    &:focus {
+      box-shadow: 0 0 2px $primary;
+    }
+
+    &.up {
+      i {
+        animation: rotateAnimation 1s 0s both;
+      }
+    }
+  }
+  .select-list {
+    .select-item {
+      .select-action {
+
+      }
+    }
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
+@keyframes rotateAnimation {
+  from {
+    transition: rotate(0);
+  }
+  to {
+    transition: rotate(90%);
+    color: red;
+  }
+}
+@keyframes notRotateAnimation {
+  from {
+    transition: rotate(90deg);
+    color: red;
+  }
+  to {
+    transition: rotate(0);
+  }
+}

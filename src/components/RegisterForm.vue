@@ -14,7 +14,7 @@
       <h3>Vamos configurar sua empresa</h3>
       <div class="center">
        
-        <label for="config">Qual o nome da sua empresa?</label>
+        <!-- <label for="config">Qual o nome da sua empresa?</label>
         <input type="text" class="input-control" name="config" v-model="empresa" :input="actBtn()" autocomplete="off">
         <button class="btn-action" :class="{'disabled': !showButton }" @click="progressAct">
           <span>Ok</span>
@@ -29,12 +29,13 @@
           <button class="btn-act" @click="progressAct">
             <span>Não</span>
           </button>
-        </div>
+        </div> -->
 
-        <label for="config" v-if="interator === 3">Qual o nome da sua empresa?</label>
-        <input type="text" class="input-control" name="config" 
+        <label for="config" v-if="interator === 3">Que tipo de processo você deseja gerenciar?  </label>
+        <!-- <input type="text" class="input-control" name="config" 
           v-model="empresa" :input="actBtn()" autocomplete="off"
-          v-if="interator === 3">
+          v-if="interator === 3"> -->
+        <Selection />
        </div>
     </div>
 
@@ -45,8 +46,13 @@
   import Vue from 'vue';
 
   import { Component } from 'vue-property-decorator';
+  import Selection from '../shared/select/Select.vue';
 
-  @Component
+  @Component({
+    components: {
+      Selection
+    }
+  })
   export default class RegisterForm extends Vue {
     public empresa: string = '';
     public showButton = false;

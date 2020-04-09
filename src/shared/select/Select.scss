@@ -15,13 +15,17 @@
     display: flex;
     justify-content: space-between;
     background-color: #FFF;
+    cursor: pointer;
     &::placeholder {
       color: $secundary_disabled;
       font-weight: bold;
       font-size: 12px;
     }
+    &.select {
+      @extend %select;
+    }
     &:focus {
-      outline-color: $primary;
+      outline: none;
     }
     span {
       margin: 0 auto;

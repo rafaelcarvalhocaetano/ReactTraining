@@ -1,7 +1,7 @@
 
 <template>
   <div class="selection">
-    <button class="btn-selected" @click="actionRotate">
+    <button class="btn-selected" @click="actionRotate" :class="{'select': typeRotate === 1 || typeRotate === 2}">
       <span>{{ item }}</span>
       <i class="fas fa-chevron-down" :class="{'arrow-up': typeRotate === 1, 'arrow-down': typeRotate === 2}"></i>
     </button>
@@ -17,7 +17,7 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Prop, Emit } from 'vue-property-decorator';
 import { List } from '../../model/List';
 
 
@@ -41,10 +41,13 @@ export default class Select extends Vue {
     }
   }
 
-  public sendValue(data: string) {
+  @Emit('item') public sendValue(data: string) {
     this.item = data;
     this.openDropDown = false;
   }
+
+
+  
 
 }
 </script>

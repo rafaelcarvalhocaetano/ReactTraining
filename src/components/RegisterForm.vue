@@ -12,15 +12,15 @@
 
     <div class="form-config">
       <h3>Vamos configurar sua empresa</h3>
-      <div class="center">
-       
+      <div class="center">       
         <label for="config">Qual o nome da sua empresa?</label>
-        <input type="text" class="input-control" name="config" v-model="empresa" :input="actBtn()" autocomplete="off">
+        <input type="text" class="input-control" name="config" 
+          v-model="empresa" :input="actBtn()" autocomplete="off"
+          :class="{'select': empresa.length}">
         <button class="btn-action" :class="{'disabled': !showButton }" @click="progressAct">
           <span>Ok</span>
           <i class="fas fa-chevron-right"></i>
         </button>
-
         <label class="cgv" v-if="interator >= 1">Você tem um processo especifico que você deseja gerenciar?</label>
         <div class="act" v-if="interator >= 1">
           <button class="btn-act" @click="progressAct(); selectActionButton()" :class="{'selected': isConfirm}">
@@ -30,8 +30,12 @@
             <span>Não</span>
           </button>
         </div>
-        <label for="config" v-if="interator === 2">Que tipo de processo você deseja gerenciar?  </label>
-        <Selection :listSelected="list" v-if="interator === 2"/>
+        <label for="config" v-if="interator >= 2">Que tipo de processo você deseja gerenciar?  </label>
+        <Selection :listSelected="list" v-if="interator >= 2" @item="getValue($event)"/>
+        <button class="btn-action" :class="{'continue': interator >= 3}" v-if="interator >= 3">
+          <span>Ok, vamos continuar</span>
+          <i class="fas fa-chevron-right"></i>
+        </button>
        </div>
     </div>
 
@@ -94,11 +98,17 @@ import { List } from '../model/List';
     }
 
     public progressAct() {
-      this.interator += 1;
+      this.interator = 2;
     }
 
     public selectActionButton() {
       this.isConfirm = !this.isConfirm;
+    }
+
+    getValue(event: string) {
+      if (event) {
+        this.interator = 3;
+      }
     }
 
   } 

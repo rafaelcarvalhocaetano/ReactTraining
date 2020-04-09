@@ -12,16 +12,16 @@
   .count-porcenter {
     align-self: flex-start;
     &.primeiro {
-      border-top: 5px solid rgb(246, 248, 94);
-      width: 20%;
+      border-top: 5px solid rgb(241, 245, 34);
+      width: 15%;
     }
     &.segundo {
-      border-top: 5px solid red;
-      width: 40%;
+      border-top: 5px solid rgb(243, 247, 32);
+      width: 25%;
     }
     &.terceiro {
-      border-top: 5px solid red;
-      width: 60%;
+      border-top: 5px solid rgb(241, 245, 32);
+      width: 35%;
     }
   }
   .count {

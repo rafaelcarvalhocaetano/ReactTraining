@@ -23,10 +23,10 @@
         </button>
         <label class="cgv" v-if="interator >= 1">Você tem um processo especifico que você deseja gerenciar?</label>
         <div class="act" v-if="interator >= 1">
-          <button class="btn-act" @click="progressAct(); selectActionButton()" :class="{'selected': isConfirm}">
+          <button class="btn-act" @click="interator = 2; selectActionButton()" :class="{'selected': isConfirm}">
             <span>Sim</span>
           </button>
-          <button class="btn-act" @click="progressAct(); selectActionButton()" :class="{'selected': !isConfirm}">
+          <button class="btn-act" @click="interator = 2; selectActionButton()" :class="{'selected': !isConfirm}">
             <span>Não</span>
           </button>
         </div>
@@ -98,7 +98,7 @@ import { List } from '../model/List';
     }
 
     public progressAct() {
-      this.interator = 2;
+      this.interator += 1;
     }
 
     public selectActionButton() {

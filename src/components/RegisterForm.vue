@@ -4,13 +4,16 @@
       :class="{
         'primeiro': interator === 1, 
         'segundo': interator === 2,
-        'terceiro': interator === 3
+        'terceiro': interator === 3,
+        'quarto': interator === 4,
+        'quinto': interator === 5
       }"></div>
     <div class="count">
-      <span>Passo 1 de 3</span>
+      <span>Passo {{ interator }} de 5</span>
     </div>
 
-    <div class="form-config">
+    <!-- FORM 1 -->
+    <div class="form-config" v-if="interator < 4">
       <h3>Vamos configurar sua empresa</h3>
       <div class="center">       
         <label for="config">Qual o nome da sua empresa?</label>
@@ -32,8 +35,27 @@
         </div>
         <label for="config" v-if="interator >= 2">Que tipo de processo você deseja gerenciar?  </label>
         <Selection :listSelected="list" v-if="interator >= 2" @item="getValue($event)"/>
-        <button class="btn-action" :class="{'continue': interator >= 3}" v-if="interator >= 3">
+        <button class="btn-action" :class="{'continue': interator >= 3}" v-if="interator >= 3" @click="interator = 4">
           <span>Ok, vamos continuar</span>
+          <i class="fas fa-chevron-right"></i>
+        </button>
+       </div>
+    </div>
+
+    <div class="form-config" v-if="interator >= 4">
+      <h3>Atualize seu perfil</h3>
+      <div class="center">       
+        <label for="name">Seu nome completo</label>
+        <input type="text" class="input-control" name="config" 
+          v-model="name" :input="actBtn()" autocomplete="off"
+          :class="{'select': name.length}" id="name">
+
+        <input type="text" class="input-control" name="config" 
+          v-model="phone" :input="actBtn()" autocomplete="off"
+          :class="{'select': phone.length}" >
+          
+        <button class="btn-action" :class="{'disabled': !showButton }" @click="interator = 5">
+          <span>Ok</span>
           <i class="fas fa-chevron-right"></i>
         </button>
        </div>
@@ -59,6 +81,8 @@ import { List } from '../model/List';
     public showButton = false;
     public interator: number = 0;
     public isConfirm = false;
+    public name = null;
+    public phone = null;
 
     public list: List [] = [
       {

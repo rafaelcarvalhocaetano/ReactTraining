@@ -23,6 +23,14 @@
       border-top: 5px solid rgb(241, 245, 32);
       width: 35%;
     }
+    &.quarto {
+      border-top: 5px solid $primary;
+      width: 60%;
+    }
+    &.quinto {
+      border-top: 5px solid rgb(74, 240, 74);
+      width: 100%;
+    }
   }
   .count {
     display: flex;

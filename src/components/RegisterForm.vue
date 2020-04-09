@@ -53,7 +53,7 @@
         <input type="text" class="input-control" name="config" 
           v-model="phone" :input="actBtn()" autocomplete="off"
           :class="{'select': phone.length}" >
-          
+
         <button class="btn-action" :class="{'disabled': !showButton }" @click="interator = 5">
           <span>Ok</span>
           <i class="fas fa-chevron-right"></i>
@@ -81,8 +81,8 @@ import { List } from '../model/List';
     public showButton = false;
     public interator: number = 0;
     public isConfirm = false;
-    public name = null;
-    public phone = null;
+    public name = '';
+    public phone = '';
 
     public list: List [] = [
       {

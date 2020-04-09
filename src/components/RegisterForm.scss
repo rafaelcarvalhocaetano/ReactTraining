@@ -26,7 +26,7 @@
   .count {
     display: flex;
     align-self: flex-end;
-    margin-top: 5%;
+    margin-top: 2%;
     padding-right: 5%;
     span {
       font-size: 16px;
@@ -39,26 +39,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 2%;
+    margin-top: 10px;
     h3 {
       text-align: center;
-      font-size: 40px;
-      letter-spacing: 4px;
+      font-size: 34px;
+      letter-spacing: 5px;
     }
     .center {
       width: 80%;
       display: flex;
       flex-direction: column;
+      margin-top: 20px;
       label {
         color: $font_color;
         font-weight: bold;
+        font-size: 14px;
         margin-bottom: 6px;
         text-shadow: 0 0 0.5px $font_color;
         letter-spacing: 1px;
-        margin-top: 30px;
       }
       .input-control {
-        height: 50px;
+        height: 40px;
         border-radius: 4px;
         color: $font_color;
         margin-bottom: 10px;
@@ -71,12 +72,14 @@
           font-size: 12px;
         }
         &:focus {
-          outline-color: $primary;
+          // outline-color: $primary;
+          outline: none;
+          border: 2px solid $primary;
         }
       }
       .btn-action {
-        width: 120px;
-        height: 55px;
+        width: 100px;
+        height: 45px;
         border: none;
         border-radius: 4px;
         display: flex;
@@ -101,12 +104,16 @@
           background-size: cover;
         }
       }
+      .cgv {
+        margin: 20px 0 10px 0;
+      }
       .act {
         display: flex;
         justify-content: center;
+        margin-bottom: 20px;
         .btn-act {
           width: 50%;
-          height: 55px;
+          height: 45px;
           cursor: pointer;
           border: none;
           border-radius: 4px;
@@ -118,6 +125,9 @@
           font-size: 14px;
           font-weight: bold;
           color: $font_color;
+          &.selected {
+            border: 2px solid $primary;
+          }
           &:last-child {
             margin-left: 20px;
           }

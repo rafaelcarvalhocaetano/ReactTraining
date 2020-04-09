@@ -3,3 +3,9 @@ export interface Item {
   icon: string;
   description: string;
 }
+
+
+export interface List {
+  id: number;
+  description: string;
+}

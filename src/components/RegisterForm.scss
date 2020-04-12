@@ -172,6 +172,11 @@
       }
       .center {
         width: 90%;
+        .btn-action {
+          display: flex;
+          justify-content: space-between;
+          padding: 0 2%;
+        }
       }
     }
   }
@@ -190,6 +195,11 @@
       margin-top: 10%;
       .center {
         width: 90%;
+        .btn-action {
+          display: flex;
+          justify-content: space-between;
+          padding: 0 2%;
+        }
       }
     }
   }

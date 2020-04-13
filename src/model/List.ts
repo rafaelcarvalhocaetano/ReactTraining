@@ -1,5 +1,5 @@
 export interface Item {
-  name: string;
+  name?: string;
   icon: string;
   description: string;
 }
@@ -8,4 +8,8 @@ export interface Item {
 export interface List {
   id: number;
   description: string;
+}
+
+export interface ItemCard extends Item {
+  color: string;
 }

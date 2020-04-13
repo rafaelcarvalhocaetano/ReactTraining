@@ -8,12 +8,12 @@
         'quarto': interator === 4,
         'quinto': interator === 5
       }"></div>
-    <div class="count">
+    <!-- COUNT -->
+    <!-- <div class="count">
       <span>Passo {{ interator }} de 5</span>
-    </div>
-
+    </div> -->
     <!-- FORM 1 -->
-    <div class="form-config" v-if="interator < 4">
+    <!-- <div class="form-config" v-if="interator < 4">
       <h3>Vamos configurar sua empresa</h3>
       <div class="center">       
         <label for="config">Qual o nome da sua empresa?</label>
@@ -40,9 +40,9 @@
           <i class="fas fa-chevron-right"></i>
         </button>
        </div>
-    </div>
-
-    <div class="form-config" v-if="interator >= 4">
+    </div> -->
+    <!-- FORM 2 -->
+    <!-- <div class="form-config" v-if="interator >= 4">
       <h3>Atualize seu perfil</h3>
       <div class="center">       
         <label for="name">Seu nome completo</label>
@@ -59,8 +59,19 @@
           <i class="fas fa-chevron-right"></i>
         </button>
        </div>
-    </div>
+    </div> -->
 
+    <!-- <div class="list">
+      <p>Escolha um template para começar</p>
+      <ul class="card-list">
+        <li class="card-item" v-for="(item, index) of listIcons" :key="index">
+          <a class="card-action">
+            <Card :dataCards="item"/>
+          </a>
+        </li>
+      </ul>
+    </div> -->
+    <ListCards :list="listIcons"/>
   </div>
 </template>
 
@@ -68,12 +79,15 @@
   import Vue from 'vue';
 
   import { Component } from 'vue-property-decorator';
+
   import Selection from '../shared/select/Select.vue';
-import { List } from '../model/List';
+  import { List, ItemCard } from '../model/List';
+  import ListCards from './ListCards.vue';
 
   @Component({
     components: {
-      Selection
+      Selection,
+      ListCards
     }
   })
   export default class RegisterForm extends Vue {
@@ -108,6 +122,44 @@ import { List } from '../model/List';
       {
         id: 6,
         description: 'Outros'
+      }
+    ];
+
+    public listIcons: ItemCard [] = [
+      {
+        icon: 'fas fa-bug',
+        description: 'Acompanhamento de Bugs',
+        color: '#ccc'
+      },
+      {
+        icon: 'fas fa-desktop',
+        description: 'Chamados de TI',
+        color: 'blue'
+      },
+      {
+        icon: 'fas fa-headset',
+        description: 'Atendimento ao Cliente/Helpdesk',
+        color: ''      
+      },
+      {
+        icon: 'fas fa-filter',
+        description: 'Pipeline de Vendas',
+        color: ''
+      },
+      {
+        icon: 'far fa-check-circle',
+        description: 'Lista Simples de Tarefas',
+        color: ''      
+      },
+      {
+        icon: 'fas fa-desktop',
+        description: 'Desenvolvimento de Software',
+        color: ''      
+      },
+      {
+        icon: 'fas fa-chart-line',
+        description: 'Gestão de Experimentos - Growth',
+        color: ''
       }
     ];
 

@@ -155,6 +155,26 @@
       }
     }
   }
+
+  // .list {
+  //   width: 70%;
+  //   margin-top: 5%;
+  //   text-align: center;
+  //   p {
+  //     font-size: 30px;
+  //     margin-bottom: 3%;
+  //     font-weight: bold;
+  //     letter-spacing: 5px;
+  //   }
+  //   .card-list {
+  //     flex-wrap: wrap;
+  //     display: flex;
+  //     .card-item {
+  //       margin: 10px;
+  //     }
+  //   }
+  // }
+  
 }
 
 @include table() {

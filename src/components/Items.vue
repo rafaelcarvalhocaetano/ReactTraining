@@ -16,8 +16,6 @@ import Vue from 'vue';
 
 import { Component, Prop, Watch } from 'vue-property-decorator';
 
-import { Item } from '../model/List';
-
 @Component
 export default class Items extends Vue {
   @Prop() list;

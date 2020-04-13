@@ -1,19 +1,12 @@
 <template>
   <div class="configuration">
-    <div class="count-porcenter" 
-      :class="{
-        'primeiro': interator === 1, 
-        'segundo': interator === 2,
-        'terceiro': interator === 3,
-        'quarto': interator === 4,
-        'quinto': interator === 5
-      }"></div>
+    <ProgressCount :interator="interator" />
     <!-- COUNT -->
-    <!-- <div class="count">
+    <div class="count">
       <span>Passo {{ interator }} de 5</span>
-    </div> -->
+    </div>
     <!-- FORM 1 -->
-    <!-- <div class="form-config" v-if="interator < 4">
+    <div class="form-config" v-if="interator < 4">
       <h3>Vamos configurar sua empresa</h3>
       <div class="center">       
         <label for="config">Qual o nome da sua empresa?</label>
@@ -40,9 +33,9 @@
           <i class="fas fa-chevron-right"></i>
         </button>
        </div>
-    </div> -->
+    </div>
     <!-- FORM 2 -->
-    <!-- <div class="form-config" v-if="interator >= 4">
+    <div class="form-config" v-if="interator === 4">
       <h3>Atualize seu perfil</h3>
       <div class="center">       
         <label for="name">Seu nome completo</label>
@@ -59,19 +52,9 @@
           <i class="fas fa-chevron-right"></i>
         </button>
        </div>
-    </div> -->
+    </div>
 
-    <!-- <div class="list">
-      <p>Escolha um template para começar</p>
-      <ul class="card-list">
-        <li class="card-item" v-for="(item, index) of listIcons" :key="index">
-          <a class="card-action">
-            <Card :dataCards="item"/>
-          </a>
-        </li>
-      </ul>
-    </div> -->
-    <ListCards :list="listIcons"/>
+    <ListCards :list="listIcons" v-if="interator >= 5"/>
   </div>
 </template>
 
@@ -83,11 +66,13 @@
   import Selection from '../shared/select/Select.vue';
   import { List, ItemCard } from '../model/List';
   import ListCards from './ListCards.vue';
+  import ProgressCount from './ProgressCount.vue';
 
   @Component({
     components: {
       Selection,
-      ListCards
+      ListCards,
+      ProgressCount
     }
   })
   export default class RegisterForm extends Vue {

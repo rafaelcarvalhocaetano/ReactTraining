@@ -1,7 +1,6 @@
 @import '../assets/styles/colors.scss';
 @import '../assets/styles/mix.scss';
 
-
 .configuration {
   width: 100%;
   height: 100vh;
@@ -9,29 +8,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  .count-porcenter {
-    align-self: flex-start;
-    &.primeiro {
-      border-top: 5px solid rgb(241, 245, 34);
-      width: 15%;
-    }
-    &.segundo {
-      border-top: 5px solid rgb(243, 247, 32);
-      width: 25%;
-    }
-    &.terceiro {
-      border-top: 5px solid rgb(241, 245, 32);
-      width: 35%;
-    }
-    &.quarto {
-      border-top: 5px solid $primary;
-      width: 60%;
-    }
-    &.quinto {
-      border-top: 5px solid rgb(74, 240, 74);
-      width: 100%;
-    }
-  }
   .count {
     display: flex;
     align-self: flex-end;
@@ -155,26 +131,7 @@
       }
     }
   }
-
-  // .list {
-  //   width: 70%;
-  //   margin-top: 5%;
-  //   text-align: center;
-  //   p {
-  //     font-size: 30px;
-  //     margin-bottom: 3%;
-  //     font-weight: bold;
-  //     letter-spacing: 5px;
-  //   }
-  //   .card-list {
-  //     flex-wrap: wrap;
-  //     display: flex;
-  //     .card-item {
-  //       margin: 10px;
-  //     }
-  //   }
-  // }
-  
+ 
 }
 
 @include table() {

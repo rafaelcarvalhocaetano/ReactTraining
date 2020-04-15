@@ -11,7 +11,8 @@
         v-model="profileInput.phone" :input="actBtn()" autocomplete="off"
         :class="{'select': profileInput.phone.length}" >
 
-      <button type="submit" class="btn-action" :class="{'disabled': !showButton }" @click="Interator">
+      <button type="submit" class="btn-action" :class="{'disabled': !showButton }" 
+        @click="request">
         <span>Ok</span>
         <i class="fas fa-chevron-right"></i>
       </button>
@@ -47,6 +48,12 @@ export default class ProfileForm extends Vue {
 
   public getForm() {
     this.sendForm(this.profileInput);
+  }
+
+  public request() {
+    if (this.profileInput.name.length > 3 && this.profileInput.phone.length >= 9) {
+      this.Interator();
+    }
   }
 }
 </script>

@@ -15,7 +15,7 @@
           :id="'enterprise'"
           :labelText="'Qual o nome da sua empresa?'"
           @send-value="getText"
-          @action-button="progressAct"/>
+          @action-button="interator = 1"/>
 
         <Process 
           v-if="interator >= 1"
@@ -24,7 +24,7 @@
 
         <label for="config" v-if="interator >= 2">Que tipo de processo você deseja gerenciar?</label>
         <Selection :listSelected="list" v-if="interator >= 2" @item="getValue($event)"/>
-        <button class="btn-action" :class="{'continue': interator >= 3}" v-if="interator >= 3" @click="progressAct">
+        <button class="btn-action" :class="{'continue': interator >= 3}" v-if="interator >= 3" @click="interator = 4">
           <span>Ok, vamos continuar</span>
           <i class="fas fa-chevron-right"></i>
         </button>
@@ -157,8 +157,7 @@ export default class RegisterForm extends Vue {
   }
 
   getProcess(data: boolean) {
-    // this.interator = 2;
-    this.progressAct();
+    this.interator = 2;
     console.log(' processo ', data);
   }
 

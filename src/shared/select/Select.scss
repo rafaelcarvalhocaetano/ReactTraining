@@ -22,7 +22,7 @@
       font-size: 12px;
     }
     &.select {
-      @extend %select;
+      border: 2px solid $primary;
     }
     &:focus {
       outline: none;

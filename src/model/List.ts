@@ -4,7 +4,6 @@ export interface Item {
   description: string;
 }
 
-
 export interface List {
   id: number;
   description: string;
@@ -12,4 +11,9 @@ export interface List {
 
 export interface ItemCard extends Item {
   color: string;
+}
+
+export interface Profile {
+  name: string;
+  phone: string;
 }

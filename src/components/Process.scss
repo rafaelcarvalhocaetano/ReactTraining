@@ -1,0 +1,39 @@
+@import '../assets/styles/colors.scss';
+@import '../assets/styles/mix.scss';
+
+.process {
+  @extend %label;
+  .act {
+    margin-top: 6px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    .btn-act {
+      width: 50%;
+      height: 45px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      background-color: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      color: $font_color;
+      &.selected {
+        border: 2px solid $primary;
+      }
+      &:last-child {
+        margin-left: 20px;
+      }
+      &:focus {
+        outline-color: $primary;
+        span {
+          color: $primary;
+        }
+      }
+    }
+  }
+}

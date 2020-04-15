@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <Header v-if="header.length" :titleHeader="header" />
+    <Header v-if="header.length" :titleHeader="imgURL" />
     <div class="login-details">
       <Items class="item" v-if="listItems.length || title" :list="listItems" :title="title" />
       <FormLogin class="form" />
@@ -28,6 +28,7 @@ import { Item } from '../model/List';
 })
 export default class Login extends Vue {
 
+  public imgURL = '../assets/__logo/pipefy.png';
   public listItems: Item [] = [
     {
       name: 'process',

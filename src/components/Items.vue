@@ -24,5 +24,5 @@ export default class Items extends Vue {
 </script>
 
 <style lang="scss" scoped>
-  @import './Item.scss';
+  @import './Items.scss';
 </style>

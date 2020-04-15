@@ -35,103 +35,10 @@
       display: flex;
       flex-direction: column;
       margin-top: 20px;
-      label {
-        color: $font_color;
-        font-weight: bold;
-        font-size: 14px;
-        margin-bottom: 6px;
-        text-shadow: 0 0 0.5px $font_color;
-        letter-spacing: 1px;
-      }
-      .input-control {
-        height: 40px;
-        border-radius: 4px;
-        color: $font_color;
-        margin-bottom: 10px;
-        border: 1px solid $secundary_disabled;
-        padding-left: 10px;
-        font-weight: bold;
-        &.select {
-          @extend %select;
-        }
-        &::placeholder {
-          color: $secundary_disabled;
-          font-weight: bold;
-          font-size: 12px;
-        }
-        &:focus {
-          outline: none;
-          border: 2px solid $primary;
-        }
-      }
-      .btn-action {
-        width: 100px;
-        &.continue {
-          width: 205px;
-        }
-        height: 45px;
-        border: none;
-        border-radius: 4px;
-        display: flex;
-        justify-content: space-between;
-        padding: 0 6%;
-        align-items: center;
-        cursor: pointer;
-        align-self: flex-end;
-        background-color: $primary;
-        &.disabled {
-          background-color: $secundary_disabled;
-        }
-        span {
-          color: #FFF;
-          font-size: 16px;
-          font-weight: bold;
-        }
-        i {
-          color: #FFF;
-          font-size: 10px;
-          font-weight: bold;
-          background-size: cover;
-        }
-      }
-      .cgv {
-        margin: 20px 0 10px 0;
-      }
-      .act {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
-        .btn-act {
-          width: 50%;
-          height: 45px;
-          cursor: pointer;
-          border: none;
-          border-radius: 4px;
-          background-color: #FFF;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          font-size: 14px;
-          font-weight: bold;
-          color: $font_color;
-          &.selected {
-            border: 2px solid $primary;
-          }
-          &:last-child {
-            margin-left: 20px;
-          }
-          &:focus {
-            outline-color: $primary;
-            span {
-              color: $primary;
-            }
-          }
-        }
-      }
+      @extend %label;
+      @extend %buttom;
     }
   }
- 
 }
 
 @include table() {
@@ -149,11 +56,6 @@
       }
       .center {
         width: 90%;
-        .btn-action {
-          display: flex;
-          justify-content: space-between;
-          padding: 0 2%;
-        }
       }
     }
   }
@@ -172,11 +74,6 @@
       margin-top: 10%;
       .center {
         width: 90%;
-        .btn-action {
-          display: flex;
-          justify-content: space-between;
-          padding: 0 2%;
-        }
       }
     }
   }

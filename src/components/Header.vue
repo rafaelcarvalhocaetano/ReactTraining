@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <p>{{ titleHeader }}</p>
+    <img :src="imageUrl" alt="Logo">
   </div>
 </template>
 
@@ -10,9 +10,9 @@ import Vue from 'vue';
 
 import { Component, Prop } from 'vue-property-decorator';
 
-@Component
+@Component()
 export default class Header extends Vue {
-  @Prop() titleHeader;
+  @Prop() imageUrl;
 }
 </script>
 

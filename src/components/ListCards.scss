@@ -4,6 +4,8 @@
   width: 70%;
   margin-top: 5%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
   p {
     font-size: 30px;
     margin-bottom: 3%;
@@ -13,6 +15,7 @@
   .card-list {
     flex-wrap: wrap;
     display: flex;
+    justify-content: center;
     .card-item {
       margin: 10px;
     }

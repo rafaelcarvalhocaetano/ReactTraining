@@ -8,7 +8,7 @@
     </div>
 
     <!-- FORM 1 -->
-    <div class="form-config" v-if="interator < 4">
+    <!-- <div class="form-config" v-if="interator < 4">
       <h3>Vamos configurar sua empresa</h3>
       <div class="center">
         <Enterprise
@@ -29,16 +29,16 @@
           <i class="fas fa-chevron-right"></i>
         </button>
        </div>
-    </div>
+    </div> -->
 
     <!-- FORM 2 -->
-    <ProfileForm
+    <!-- <ProfileForm
       v-if="interator === 4"
       :titleProfile="'Atualize seu perfil'"
       @sendForm="getForm"
-      @Interator="progressAct" />
+      @Interator="progressAct" /> -->
 
-    <ListCards :list="listIcons" v-if="interator >= 5"/>
+    <ListCards :list="listIcons" />
   
   </div>
 </template>
@@ -104,37 +104,37 @@ export default class RegisterForm extends Vue {
     {
       icon: 'fas fa-bug',
       description: 'Acompanhamento de Bugs',
-      color: '#ccc'
+      color: '#ed5353'
     },
     {
       icon: 'fas fa-desktop',
       description: 'Chamados de TI',
-      color: 'blue'
+      color: '#7b0acc'
     },
     {
       icon: 'fas fa-headset',
       description: 'Atendimento ao Cliente/Helpdesk',
-      color: ''      
+      color: '#00b579'      
     },
     {
       icon: 'fas fa-filter',
       description: 'Pipeline de Vendas',
-      color: ''
+      color: '#d6ae1c'
     },
     {
       icon: 'far fa-check-circle',
       description: 'Lista Simples de Tarefas',
-      color: ''      
+      color: '#8e29d6'      
     },
     {
       icon: 'fas fa-desktop',
       description: 'Desenvolvimento de Software',
-      color: ''      
+      color: '#7b0acc'      
     },
     {
       icon: 'fas fa-chart-line',
       description: 'Gestão de Experimentos - Growth',
-      color: ''
+      color: '#8e29d6'
     }
   ];
 

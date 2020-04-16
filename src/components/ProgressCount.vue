@@ -16,7 +16,7 @@
 
   import { Component, Prop } from 'vue-property-decorator';
 
-  @Component
+  @Component({})
   export default class ProgressCount extends Vue {
     @Prop() interator: number = 0;
   }

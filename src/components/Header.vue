@@ -10,7 +10,7 @@ import Vue from 'vue';
 
 import { Component, Prop } from 'vue-property-decorator';
 
-@Component()
+@Component({})
 export default class Header extends Vue {
   @Prop() imageUrl;
 }

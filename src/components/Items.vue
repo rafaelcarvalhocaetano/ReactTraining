@@ -16,10 +16,10 @@ import Vue from 'vue';
 
 import { Component, Prop, Watch } from 'vue-property-decorator';
 
-@Component
+@Component({})
 export default class Items extends Vue {
-  @Prop() list;
-  @Prop() title;
+  @Prop() list = null;
+  @Prop() title = null;
 }
 </script>
 

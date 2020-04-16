@@ -21,8 +21,8 @@ import { Component, Emit, Prop } from 'vue-property-decorator';
 @Component({})
 export default class Enterprise extends Vue {
 
-  @Prop() labelText;
-  @Prop() id;
+  @Prop() labelText = null;
+  @Prop() id = null;
 
   public empresa = '';
   public showButton = false;

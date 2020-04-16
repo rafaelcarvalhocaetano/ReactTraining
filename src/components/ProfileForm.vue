@@ -29,7 +29,7 @@ import { Profile } from '../model/List';
 @Component({})
 export default class ProfileForm extends Vue {
 
-  @Prop() titleProfile;
+  @Prop() titleProfile = null;
   @Emit('sendForm') sendForm(data: Profile) {}
   @Emit('Interator') Interator() {}
 

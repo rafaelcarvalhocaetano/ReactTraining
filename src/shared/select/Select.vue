@@ -21,7 +21,7 @@ import { Component, Prop, Emit } from 'vue-property-decorator';
 import { List } from '../../model/List';
 
 
-@Component
+@Component({})
 export default class Select extends Vue {
 
   @Prop() listSelected: any;

@@ -11,7 +11,7 @@ import Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 import { ItemCard } from '../../model/List';
 
-@Component
+@Component({})
 export default class Card extends Vue {
   
   @Prop() dataCards?: ItemCard;

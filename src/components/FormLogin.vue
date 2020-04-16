@@ -7,7 +7,7 @@
       </div>
       <div class="form">
         <label for="email">Seu email de trabalho</label>
-        <input type="text" class="form-control" placeholder="voce@empresa.com.br" 
+        <input type="text" class="input-control" placeholder="voce@empresa.com.br" 
         id="email" name="email" v-model.trim.lazy="email" :input="getValue()">
         <button class="btn-submited" :class="{'disabled': !flag }" @click="router">
           <span></span>
@@ -54,7 +54,11 @@
     }
 
     public router() {
-      this.$router.push('/register');
+      this.flag
+      ?
+      this.$router.push('/register')
+      :
+      null;
     }
 
 

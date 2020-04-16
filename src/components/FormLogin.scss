@@ -2,23 +2,16 @@
 @import '../assets/styles/mix.scss';
 
 .form-login {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @extend %flex-column;
   height: 90vh;
   .form-full {
     border-radius: 2px;
     background-color: #FFF;
     box-shadow: 0.5px 0px 8px $secundary_disabled;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @extend %flex-column;
     margin-top: 35px;
     .form-readme {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      @extend %flex-column;
       text-align: center;
       .title {
         color: $font_color_title;
@@ -44,29 +37,8 @@
       margin-top: 4%;
       border-bottom: 1px solid $secundary_disabled;
       padding-bottom: 20px;
-      label {
-        color: $font_color;
-        font-weight: bold;
-        margin-bottom: 6px;
-        text-shadow: 0 0 0.5px $font_color;
-        letter-spacing: 1px;
-      }
-      .form-control {
-        height: 50px;
-        padding: 0 4%;
-        border-radius: 4px;
-        color: $font_color;
-        margin-bottom: 25px;
-        border: 1px solid $secundary_disabled;
-        &::placeholder {
-          color: $secundary_disabled;
-          font-weight: bold;
-          font-size: 12px;
-        }
-        &:focus {
-          box-shadow: 0 0 2px $primary;
-        }
-      }
+      @extend %label;
+      @extend %input;
       .btn-submited {
         height: 55px;
         border: none;
@@ -92,6 +64,9 @@
           font-size: 10px;
           font-weight: bold;
           background-size: cover;
+        }
+        &:focus {
+          outline: none;
         }
       }
     }
@@ -133,7 +108,7 @@
             outline: none;
           }
           &:active {
-            border: 1px solid darken($primary, 5);
+            border: 2px solid darken($primary, 5);
             opacity: 0.8;
           }
         }

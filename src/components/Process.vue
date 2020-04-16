@@ -20,7 +20,7 @@ import { Component, Emit, Prop } from 'vue-property-decorator';
 @Component({})
 export default class Process extends Vue {
   
-  @Prop() label = null;
+  @Prop() label?: string;
 
   public isProcess: boolean = false;
 

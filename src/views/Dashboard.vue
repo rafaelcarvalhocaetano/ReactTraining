@@ -1,6 +1,10 @@
 <template>
   <div class="dashboard">
     <sidenav />
+    <div class="header">
+      <img src="../assets/__logo/pipefy.png" alt="Pipefy">
+      <p>Sistema de Dashboard</p>
+    </div>
   </div>
 </template>
 

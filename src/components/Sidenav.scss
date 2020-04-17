@@ -1,0 +1,33 @@
+@import '../assets/styles/colors.scss';
+@import '../assets/styles/mix.scss';
+
+.sidenav {
+  width: 50px;
+  height: 100vh;
+  background-color: #FFF;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0px 0px 5px 0px rgba(148, 147, 147, 0.486);
+  .sidenav-item {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10%;
+    &:hover {
+      @extend %hover-select-sidenav;
+    }
+    &.selected {
+      @extend %hover-select-sidenav;
+    }
+    .sidenav-action {
+      padding: 20px;
+      color: $font_color;
+    }
+    &:nth-child(5) {
+      margin-top: 58vh;
+    }
+  }
+}

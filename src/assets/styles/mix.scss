@@ -86,3 +86,16 @@
   justify-content: center;
   align-items: center;
 }
+
+%hover-select-sidenav {
+  width: 35px;
+  height: 35px;
+  background-color: $hover_sidenav;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  color: $primary;
+  a > i {
+    color: $primary;
+  }
+}

@@ -8,7 +8,7 @@
     </div>
 
     <!-- FORM 1 -->
-    <!-- <div class="form-config" v-if="interator < 4">
+    <div class="form-config" v-if="interator < 4">
       <h3>Vamos configurar sua empresa</h3>
       <div class="center">
         <Enterprise
@@ -29,16 +29,16 @@
           <i class="fas fa-chevron-right"></i>
         </button>
        </div>
-    </div> -->
+    </div>
 
     <!-- FORM 2 -->
-    <!-- <ProfileForm
+    <ProfileForm
       v-if="interator === 4"
       :titleProfile="'Atualize seu perfil'"
       @sendForm="getForm"
-      @Interator="progressAct" /> -->
+      @Interator="addList" />
 
-    <ListCards :list="listIcons" />
+    <ListCards :list="listIcons" v-if="interator === 5" />
   
   </div>
 </template>
@@ -143,7 +143,10 @@ export default class RegisterForm extends Vue {
   }
 
   public progressAct() {
+    console.log(' in ', this.interator);
     this.interator += 1;
+    console.log(' in ', this.interator);
+
   }
 
   getValue(event: string) {
@@ -163,6 +166,10 @@ export default class RegisterForm extends Vue {
 
   getForm(data: Profile) {
     console.log(' formulario ', data);
+  }
+
+  public addList() {
+    this.interator += 1;
   }
   
 

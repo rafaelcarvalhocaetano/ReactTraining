@@ -18,8 +18,8 @@ import { Component, Prop, Watch } from 'vue-property-decorator';
 
 @Component({})
 export default class Items extends Vue {
-  @Prop() list = null;
-  @Prop() title = null;
+  @Prop() list;
+  @Prop() title;
 }
 </script>
 

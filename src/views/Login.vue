@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <Header v-if="header.length" :titleHeader="imgURL" />
+    <Header />
     <div class="login-details">
       <Items class="item" v-if="listItems.length || title" :list="listItems" :title="title" />
       <FormLogin class="form" />
@@ -47,7 +47,6 @@ export default class Login extends Vue {
     }
   ];
   public title: string = 'Obtenha um impacto maior e traga ordem ao seu processo';
-  public header = 'pipefy';
 }
 </script>
 

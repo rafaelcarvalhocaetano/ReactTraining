@@ -3,7 +3,7 @@
     <p>Escolha um template para começar</p>
     <ul class="card-list">
       <li class="card-item" v-for="(item, index) of list" :key="index">
-        <a class="card-action">
+        <a class="card-action" @click="routerAct">
           <Card :dataCards.sync="item"/>
         </a>
       </li>
@@ -25,6 +25,10 @@
   })
   export default class ListCards extends Vue {
     @Prop() list?: ItemCard [];
+
+    public routerAct() {
+      this.$router.push('/dashboard');
+    }
   }
 </script>
 

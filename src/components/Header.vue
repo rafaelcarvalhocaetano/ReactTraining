@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <img :src="imageUrl" alt="Logo">
+    <img src="../assets/__logo/pipefy.png" alt="Logo">
   </div>
 </template>
 
@@ -11,9 +11,7 @@ import Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
 @Component({})
-export default class Header extends Vue {
-  @Prop() imageUrl;
-}
+export default class Header extends Vue { }
 </script>
 
 <style lang="sass" scoped>

@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '',
-    redirect: () => '/register'
+    redirect: () => '/dashboard'
   },
   {
     path: '/login',
@@ -17,6 +17,11 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: () => import('../views/Register.vue')
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: () => import('../views/Dashboard.vue')
   }
 ]
 

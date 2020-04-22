@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <Header />
+    <Header :type="1"/>
     <div class="login-details">
       <Items class="item" v-if="listItems.length || title" :list="listItems" :title="title" />
       <FormLogin class="form" />

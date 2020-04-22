@@ -99,3 +99,24 @@
     color: $primary;
   }
 }
+
+%btn-center {
+  color: $primary;
+  justify-content: center;
+  background-color: transparent;
+  border: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    opacity: 0.8;
+  }
+  &:hover {
+    width: 30px;
+    height: 30px;
+    background-color: $btn_disabled_hover;
+    color: $blue_secundary;
+  }
+}

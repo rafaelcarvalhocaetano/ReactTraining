@@ -45,8 +45,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-
-import { Component } from 'vue-property-decorator';
+import Component from 'vue-class-component';
 
 import Selection from '../shared/select/Select.vue';
 

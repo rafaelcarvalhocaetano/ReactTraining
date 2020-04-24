@@ -3,13 +3,16 @@
     "target": "esnext",
     "module": "esnext",
     "strict": true,
+    "sourceMap": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
     "jsx": "preserve",
     "importHelpers": true,
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
     "baseUrl": ".",
     "types": [
       "webpack-env",
@@ -22,6 +25,7 @@
     },
     "lib": [
       "esnext",
+      "ES2016",
       "dom",
       "dom.iterable",
       "scripthost"

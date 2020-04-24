@@ -11,8 +11,8 @@
 <script lang="ts">
 
 import Vue from 'vue';
+import Component from 'vue-class-component';
 
-import { Component } from 'vue-property-decorator';
 import Items from '../components/Items.vue';
 import Header from '../components/Header.vue';
 import FormLogin from '../components/FormLogin.vue';

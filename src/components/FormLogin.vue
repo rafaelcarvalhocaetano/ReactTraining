@@ -35,34 +35,34 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
-  import { Component } from 'vue-property-decorator';
+import Vue from 'vue'
+import Component from 'vue-class-component';
 
-  @Component({})
-  export default class FormLogin extends Vue {
 
-    public email: string = '';
-    public flag = false;
+@Component({})
+export default class FormLogin extends Vue {
 
-    public getValue() {
-      if (this.email !== null) {
-        const emailTest = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
-        if (emailTest.test(this.email)) {
-          this.flag = true;
-        }
+  public email: string = '';
+  public flag = false;
+
+  public getValue() {
+    if (this.email !== null) {
+      const emailTest = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
+      if (emailTest.test(this.email)) {
+        this.flag = true;
       }
     }
-
-    public router() {
-      this.flag
-      ?
-      this.$router.push('/register')
-      :
-      null;
-    }
-
-
   }
+
+  public router() {
+    this.flag
+    ?
+    this.$router.push('/register')
+    :
+    null;
+  }
+
+}
 </script>
 
 <style scoped lang="sass">

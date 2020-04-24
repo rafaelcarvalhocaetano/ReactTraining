@@ -15,7 +15,9 @@
 <script lang="ts">
 
 import Vue from 'vue';
-import { Component, Prop, Emit } from 'vue-property-decorator';
+import Component from 'vue-class-component';
+
+import { Prop, Emit } from 'vue-property-decorator';
 import { ItemCard } from '../../model/List';
 
 @Component({})

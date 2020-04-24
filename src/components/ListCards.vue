@@ -12,24 +12,25 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
-  import { Component, Prop } from 'vue-property-decorator';
-  import { ItemCard } from '../model/List';
-  import Card from '../shared/card/Card.vue';
+import { Prop } from 'vue-property-decorator';
+import { ItemCard } from '../model/List';
+import Card from '../shared/card/Card.vue';
 
-  @Component({
-    components: {
-      Card
-    }
-  })
-  export default class ListCards extends Vue {
-    @Prop() list?: ItemCard [];
-
-    public routerAct() {
-      this.$router.push('/dashboard');
-    }
+@Component({
+  components: {
+    Card
   }
+})
+export default class ListCards extends Vue {
+  @Prop() list?: ItemCard [];
+
+  public routerAct() {
+    this.$router.push('/dashboard');
+  }
+}
 </script>
 
 <style lang="scss" scoped>

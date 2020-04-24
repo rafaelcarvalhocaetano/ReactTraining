@@ -1,0 +1,222 @@
+@import '../../assets/styles/colors.scss';
+@import '../../assets/styles/mix.scss';
+
+
+.list {
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 1px 1px 2px rgba(51, 51, 51, 0.479);
+  width: 250px;
+  border-radius: 7px;
+  border: 2px solid $primary;
+  .added-title {
+    width: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    background-color: $background;
+    h2 {
+      padding: 0 10px;
+      text-align: center;
+      letter-spacing: 2px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .btn-action {
+      width: 30px;
+      height: 30px;
+      @extend %btn-center;
+    }
+
+    .dpd-enter-active {
+      transition: all 600ms ease;
+    }
+    .dpd-leave-active {
+      transition: all 200ms cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+    .dpd-enter, .dpd-leave-to {
+      transform: translateX(5px);
+      opacity: 0;
+    }
+
+    .dropdown {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      height: auto;
+      background-color: #FFF;
+      position: absolute;
+      right: 4px;
+      top: 4px;
+      border-radius: 4px;
+      box-shadow: 2px 2px 5px 1px rgb(129, 129, 129);
+      z-index: 1;
+      .dpd-item {
+        width: 100%;
+        padding: 2px 0;
+        .dpd-action {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          padding: 10px 15px;
+          i {
+            color: darken($primary, 10);
+          }
+          span {
+            margin-left: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+          }
+          &:hover {
+            background-color: $btn_disabled_hover;
+            cursor: pointer;
+            i {
+              color: $blue_secundary;
+            }
+          }
+        }
+      }
+    }
+  }
+  .dnd-list {
+    width: 250px;
+    border-radius: 7px;
+    height: 65vh;
+    max-height: 65vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;     
+    &::-webkit-scrollbar {
+      width: 2px;
+    }
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px rgb(255, 255, 255);
+      border-radius: 2px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 8px;
+    }  
+    .dnd-item {
+      width: 95%;
+      display: flex;
+      margin: 5px auto;
+      border-radius: 4px;
+      box-shadow: 1px 1px 1px 1px #ccc;
+      background-color: #FFF;
+      cursor: grab;
+      &:active {
+        cursor: grabbing;
+        opacity: 0.6;
+      }
+      .dnd-action {
+        width: 92%;
+        display: flex;
+        flex-direction: column;
+        padding: 0 10px;
+        top: 0;
+        position: sticky;
+        .card-title {
+          top: 0;
+          position: sticky;
+          height: auto;
+          font-size: 14px;
+          font-weight: bold;
+          opacity: 0.7;
+          letter-spacing: 1px;
+          line-height: 30px;
+          margin-left: 10px;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .icons-act {
+          padding: 2px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .list-icons {
+            cursor: pointer;
+            height: 30px;
+            .btn {
+              width: 25px;
+              height: 25px;
+              border: none;
+              color: $primary;
+              background-color: transparent;
+              cursor: pointer;
+              margin-right: 5px;
+              font-size: 12px;
+              &:focus {
+                outline: none;
+              }
+              &:hover {
+                background-color: $btn_disabled_hover;
+                border-radius: 50%;
+              }
+            }
+          }
+          .btn-auth {
+            width: 25px;
+            height: 25px;
+            background-color: $primary;
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            letter-spacing: 1px;
+
+            font-size: 12px;
+            font-weight: bold;
+            color: #FFF;
+            cursor: pointer;
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+        &:active {
+          border: 2px dashed $primary;
+        }
+      }
+    }
+    
+  }
+  .added {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    color: $font_color;
+    &:focus {
+      outline: none;
+    }
+    &:active {
+      border: 2px dashed $primary;
+    }
+    i {
+      margin-right: 20px;
+      font-size: 14px;
+    }
+    p {
+      font-size: 16px;
+      letter-spacing: 2px;
+    }
+    &:hover {
+      background-color: $btn_disabled_hover;
+      color: $primary;
+    }
+  }
+}

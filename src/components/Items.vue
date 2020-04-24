@@ -13,8 +13,9 @@
 <script>
 
 import Vue from 'vue';
+import Component from 'vue-class-component';
 
-import { Component, Prop, Watch } from 'vue-property-decorator';
+import { Prop, Watch } from 'vue-property-decorator';
 
 @Component({})
 export default class Items extends Vue {

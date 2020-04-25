@@ -16,7 +16,7 @@
       </div>
       <div class="dashboard">
         <div v-for="(item, i) of listDashboard" :key="i">
-          <dndlist :title="'Test 0001'" :listItems="listDashboard[i].listDranAndDrop" />
+          <dndlist :title="'Test 0001'" :index="i" :listItems="listDashboard[i].listDranAndDrop" @dnd="dataDND" />
         </div>
       </div>
     </div>
@@ -51,42 +51,32 @@ export default class Dashboard extends Vue {
     {
       listDranAndDrop: [
         {
-          id: 'Y6ASD954FD6JS717RHF763',
+          id: 'bc9a5228-f552-44e4-9ce1-8eb3cd5dd72e',
           description: 'Test 001',
           auth: 'Rafael Carvalho'
         },
         {
-          id: 'Y6ASD954FD6JS7123232HF121',
+          id: '39e04df1-dccf-490a-824e-4058678cc0',
           description: 'Test 002',
           auth: 'Rafael Carvalho'
         },
          {
-          id: 'Y6ASD954FD6JS717RHF763',
+          id: '3af7c8b0-ac87-4421-a02',
           description: 'Test 001',
           auth: 'Rafael Carvalho'
         },
         {
-          id: 'Y6ASD954FD6JS7123232HF121',
+          id: '028c601e-c812-4ed5-b02c-014e89a1',
           description: 'Test 002',
           auth: 'Rafael Carvalho'
         },
          {
-          id: 'Y6ASD954FD6JS717RHF763',
+          id: '028c601e-c812-7y65t-b02c-0a1',
           description: 'Test 001',
           auth: 'Rafael Carvalho'
         },
         {
-          id: 'Y6ASD954FD6JS7123232HF121',
-          description: 'Test 002',
-          auth: 'Rafael Carvalho'
-        },
-         {
-          id: 'Y6ASD954FD6JS717RHF763',
-          description: 'Test 001',
-          auth: 'Rafael Carvalho'
-        },
-        {
-          id: 'Y6ASD954FD6JS7123232HF121',
+          id: 'ujh765rt-f552-44e4-9ce1-58u7y',
           description: 'Test 002',
           auth: 'Rafael Carvalho'
         }
@@ -95,12 +85,12 @@ export default class Dashboard extends Vue {
     {
       listDranAndDrop: [
         {
-          id: 'Y6ASD954FD6JS717RHF763',
+          id: '17c27676-b514-4dad-9769-a8433e',
           description: 'Test 001',
           auth: 'Rafael Carvalho'
         },
         {
-          id: 'Y6ASD954FD6JS712322HF12',
+          id: '17c27676-b514-4dad-9769-a53133e',
           description: 'Test 002',
           auth: 'Rafael Carvalho'
         }
@@ -109,7 +99,7 @@ export default class Dashboard extends Vue {
     {
       listDranAndDrop: [
         {
-          id: 'Y6ASD954FD6JS717RHF763',
+          id: 'a482e327-c866-4b85-9631-20d2bb',
           description: 'Test 001',
           auth: 'Rafael Carvalho'
         }
@@ -124,8 +114,29 @@ export default class Dashboard extends Vue {
   }
 
   public action(e: string) {
+    console.log("Dashboard -> action -> e", e)
     this.openModal = false;
+    this.listDashboard[0].listDranAndDrop.push(
+      {
+      id: `GT67201HGH981B-9NBI8987GH90-NU9N${e.length}`,
+      description: `${e}`,
+      auth: `Added ${e.length}`
+    });
   }
+
+  public dataDND(data: any) {
+    let dataT: any = null;
+    let currentIndex: any = null;
+    this.listDashboard.map((x, i) => {
+      x.listDranAndDrop.map((t, ind) => {
+        if (data.id === t.id) {
+          this.listDashboard[data.index].listDranAndDrop.push(t);
+          this.listDashboard[i].listDranAndDrop.splice(ind, 1);
+        }
+      });
+    }); 
+  }
+
 
 }
 </script>

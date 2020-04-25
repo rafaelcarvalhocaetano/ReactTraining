@@ -7,9 +7,12 @@
       </button>
       <Actions v-if="openDrop" :listAction="listAct" @close="getAction" />
     </div>
-    <ul class="dnd-list">
-      <li class="dnd-item" v-for="(item, i) of listItems" :key="i">
-        <dndcard :descriptionCard="item.description" :auth="letras(item.auth)"/>
+    <ul class="dnd-list"  @dragover.prevent  @drop.prevent="drop">
+      <li class="dnd-item" v-for="(item, i) of listItems" :key="i" :uuid="item.id">
+        <dndcard 
+          :uuid="item.id" :descriptionCard="item.description" 
+          :auth="letras(item.auth)"/>
+          {{ item.id }}
       </li>
     </ul>
     <form class="plus" v-if="newItem" @submit.prevent="dndForm">
@@ -48,6 +51,7 @@ export default class DNDList extends Vue {
 
   @Prop() title?: string;
   @Prop() listItems!: DranAndDrop [];
+  @Prop() index!: number;
 
   public innerValue: string = '';
   public newItem = false;
@@ -70,6 +74,12 @@ export default class DNDList extends Vue {
     }
   ]
 
+  public dataItem = null;
+
+  @Emit('dnd') public dnd(data: any) {
+    return data;
+  }
+
   public letras = (item: string) => {
     let data = null;
     item.replace(' ', (r, b, a) => data = a.charAt(0) + a.charAt(b + 1));
@@ -91,6 +101,17 @@ export default class DNDList extends Vue {
     this.openDrop = false;
   }
 
+  public drop(ev: any) {
+    const card_id = ev.dataTransfer.getData('card_id');
+    const card: any = document.getElementById(card_id);
+    const data = {
+      id: card.id,
+      index: this.index
+    }
+    this.dnd(data);
+    // ev.target.appendChild(card);
+
+  }
 }
 </script>
 

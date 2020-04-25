@@ -1,6 +1,10 @@
 <template>
   <div class="card-container">
-    <a class="card-action">
+    <a class="card-action"
+     :id="uuid" 
+      draggable="true" 
+      @dragstart="drag"
+      @dragover.stop>
       <p class="card-title">{{ descriptionCard ? descriptionCard : 'Not Title' }}</p>
       <div class="card-act">
         <div class="card-icons">
@@ -35,7 +39,12 @@ export default class DNDCard extends Vue {
 
   @Prop() descriptionCard?: string;
   @Prop() auth!: string;
+  @Prop() uuid!: any;
 
+  public drag(e: any) {
+    const target = e.target;
+    e.dataTransfer.setData('card_id', target.id);
+  }
 
 }
 </script>

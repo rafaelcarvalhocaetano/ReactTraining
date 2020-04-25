@@ -5,52 +5,11 @@
       <button class="btn-action" @click="openDrop = !openDrop">
         <i class="fas fa-ellipsis-h"></i>
       </button>
-      <!-- CRIAR COMPONENTE -->
-      <transition name="dpd">
-        <ul class="dropdown" v-if="openDrop">
-          <li class="dpd-item">
-            <a class="dpd-action" @click="openDrop = false">
-              <i class="fas fa-minus-circle"></i>
-              <span>remover</span>
-            </a>
-          </li>
-          <li class="dpd-item">
-            <a class="dpd-action">
-              <i class="fas fa-plus-circle"></i>
-              <span>Adicionando</span>
-            </a>
-          </li>
-          <li class="dpd-item">
-            <a class="dpd-action">
-              <i class="fas fa-plus-circle"></i>
-              <span>Adicionando</span>
-            </a>
-          </li>
-        </ul>
-      </transition>
+      <Actions v-if="openDrop" :listAction="listAct" @close="getAction" />
     </div>
     <ul class="dnd-list">
       <li class="dnd-item" v-for="(item, i) of listItems" :key="i">
-        <!-- CRIAR COMPONENTE -->
-        <a class="dnd-action">
-          <p class="card-title">{{ item.description }}</p>
-          <div class="icons-act">
-            <div class="list-icons">
-              <button class="btn">
-                <i class="fa fa-plus"></i>
-              </button>
-              <button class="btn">
-                <i class="fa fa-plus"></i>
-              </button>
-              <button class="btn">
-                <i class="fa fa-plus"></i>
-              </button>
-            </div>
-            <button class="btn-auth">
-              <p class="auth">{{ letras(item.auth) }}</p>
-            </button>
-          </div>
-        </a>
+        <dndcard :descriptionCard="item.description" :auth="letras(item.auth)"/>
       </li>
     </ul>
     <form class="plus" v-if="newItem" @submit.prevent="dndForm">
@@ -73,9 +32,18 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Prop, Emit } from 'vue-property-decorator';
-import { DranAndDrop } from '../../model/dndElement';
 
-@Component({})
+import { DranAndDrop } from '../model/dndElement';
+import DNDCard from '../shared/dnd-card/DNDCard.vue';
+import Actions from '../shared/actions/Actions.vue';
+import { Action } from '../model/List';
+
+@Component({
+  components: {
+    dndcard: DNDCard,
+    Actions: Actions
+  }
+})
 export default class DNDList extends Vue {
 
   @Prop() title?: string;
@@ -84,6 +52,23 @@ export default class DNDList extends Vue {
   public innerValue: string = '';
   public newItem = false;
   public openDrop = false;
+  public listAct: Action [] = [
+     {
+      icon: 'fas fa-minus-circle',
+      description: 'remover',
+      type: 'delete'
+    },
+     {
+      icon: 'fas fa-plus-circle',
+      description: 'Adicionando',
+      type: 'post'
+    },
+     {
+      icon: 'fas fa-plus-circle',
+      description: 'Editando',
+      type: 'delete'
+    }
+  ]
 
   public letras = (item: string) => {
     let data = null;
@@ -91,6 +76,7 @@ export default class DNDList extends Vue {
     return data;
   }
 
+  //generic test
   public dndForm() {
     this.listItems.push({
       id: `GT67201HGH981B-9NBI8987GH90-NU9N${this.innerValue.length}`,
@@ -99,6 +85,10 @@ export default class DNDList extends Vue {
     });
     this.innerValue = '';
     this.newItem = false;
+  }
+
+  public getAction(data: any) {
+    this.openDrop = false;
   }
 
 }

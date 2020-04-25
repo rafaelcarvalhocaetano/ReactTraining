@@ -1,0 +1,53 @@
+@import '../../assets/styles/colors.scss';
+
+
+.dpd-enter-active {
+  transition: all 600ms ease;
+}
+.dpd-leave-active {
+  transition: all 200ms cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.dpd-enter, .dpd-leave-to {
+  transform: translateX(5px);
+  opacity: 0;
+}
+
+.dropdown {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  height: auto;
+  background-color: #FFF;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px 1px rgb(129, 129, 129);
+  z-index: 1;
+  .dpd-item {
+    width: 100%;
+    padding: 2px 0;
+    .dpd-action {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 10px 15px;
+      i {
+        color: darken($primary, 10);
+      }
+      span {
+        margin-left: 20px;
+        font-size: 12px;
+        font-weight: bold;
+        letter-spacing: 2px;
+      }
+      &:hover {
+        background-color: $btn_disabled_hover;
+        cursor: pointer;
+        i {
+          color: $blue_secundary;
+        }
+      }
+    }
+  }
+}

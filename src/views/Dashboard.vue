@@ -14,14 +14,11 @@
           </button>
         </div>
       </div>
-
       <div class="dashboard">
         <div v-for="(item, i) of listDashboard" :key="i">
           <dndlist :title="'Test 0001'" :listItems="listDashboard[i].listDranAndDrop" />
         </div>
       </div>
-
-
     </div>
 
     <modal v-if="openModal" @action="action"/>
@@ -35,9 +32,9 @@ import Component from 'vue-class-component';
 import Sidenav from '../components/Sidenav.vue';
 import Header from '../components/Header.vue';
 import Modal from '../shared/modal/Modal.vue';
-import DNDList from '../shared/dnd-list/DNDList.vue';
 
 import { DranAndDropList } from '../model/dndElement';
+import DNDList from '../components/DNDList.vue';
 
 
 @Component({

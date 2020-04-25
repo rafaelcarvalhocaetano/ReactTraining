@@ -1,0 +1,82 @@
+@import '../../assets/styles/colors.scss';
+@import '../../assets/styles/mix.scss';
+
+
+.card-container {
+  border-radius: 7px;
+  box-shadow: 1px 1px 1px 1px #ccc;
+  background-color: #FFF;
+  cursor: grab;
+  margin: 5px;
+  .card-action {
+    display: flex;
+    flex-direction: column;
+    border-radius: 7px;
+    padding: 0 10px;
+    .card-title {
+      top: 0;
+      position: sticky;
+      height: auto;
+      font-size: 14px;
+      font-weight: bold;
+      opacity: 0.7;
+      letter-spacing: 1px;
+      line-height: 30px;
+      margin-left: 10px;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .card-act {
+      padding: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .card-icons {
+        cursor: pointer;
+        height: 30px;
+        .btn {
+          width: 25px;
+          height: 25px;
+          border: none;
+          color: $primary;
+          background-color: transparent;
+          cursor: pointer;
+          margin-right: 5px;
+          font-size: 12px;
+          &:focus {
+            outline: none;
+          }
+          &:hover {
+            background-color: $btn_disabled_hover;
+            border-radius: 50%;
+          }
+        }
+      }
+      .btn-auth {
+        width: 25px;
+        height: 25px;
+        background-color: $primary;
+        border-radius: 50%;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        letter-spacing: 1px;
+        font-size: 12px;
+        font-weight: bold;
+        color: #FFF;
+        cursor: pointer;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    &:active {
+      cursor: grabbing;
+      border: 1px dashed $primary;
+      opacity: 0.8;
+    }
+  }
+}

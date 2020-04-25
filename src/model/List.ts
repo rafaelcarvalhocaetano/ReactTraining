@@ -17,3 +17,9 @@ export interface Profile {
   name: string;
   phone: string;
 }
+
+export interface Action {
+  icon: string,
+  description: string,
+  type: string;
+}

@@ -50,7 +50,9 @@
     &::-webkit-scrollbar-thumb {
       background: #ccc;
       border-radius: 8px;
-    } 
+    }
+
+    
   }
 
   .plus {
@@ -106,4 +108,8 @@
       color: $primary;
     }
   }
+}
+#droppable {
+  background-color: tomato;
+
 }

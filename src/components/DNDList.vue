@@ -12,7 +12,6 @@
         <dndcard 
           :uuid="item.id" :descriptionCard="item.description" 
           :auth="letras(item.auth)"/>
-          {{ item.id }}
       </li>
     </ul>
     <form class="plus" v-if="newItem" @submit.prevent="dndForm">
@@ -101,8 +100,8 @@ export default class DNDList extends Vue {
     this.openDrop = false;
   }
 
-  public drop(ev: any) {
-    const card_id = ev.dataTransfer.getData('card_id');
+  public drop(e: any) {
+    const card_id = e.dataTransfer.getData('card');
     const card: any = document.getElementById(card_id);
     const data = {
       id: card.id,

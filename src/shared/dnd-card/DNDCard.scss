@@ -1,9 +1,8 @@
 @import '../../assets/styles/colors.scss';
 @import '../../assets/styles/mix.scss';
 
-
 .card-container {
-  border-radius: 7px;
+  border-radius: 4px;
   box-shadow: 1px 1px 1px 1px #ccc;
   background-color: #FFF;
   cursor: grab;
@@ -11,7 +10,7 @@
   .card-action {
     display: flex;
     flex-direction: column;
-    border-radius: 7px;
+    border-radius: 4px;
     padding: 0 10px;
     .card-title {
       top: 0;
@@ -74,9 +73,12 @@
       }
     }
     &:active {
+      width: auto;
+      height: auto;
       cursor: grabbing;
-      border: 1px dashed $primary;
-      opacity: 0.8;
     }
+    
   }
+  
+  
 }

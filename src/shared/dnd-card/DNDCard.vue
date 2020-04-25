@@ -1,10 +1,12 @@
 <template>
   <div class="card-container">
     <a class="card-action"
-     :id="uuid" 
+     :id="uuid"
       draggable="true" 
-      @dragstart="drag"
-      @dragover.stop>
+      @dragstart="dragstart"
+      @dragover="dragover"
+      @dragend="dragend"
+      @drag="drag">
       <p class="card-title">{{ descriptionCard ? descriptionCard : 'Not Title' }}</p>
       <div class="card-act">
         <div class="card-icons">
@@ -41,10 +43,39 @@ export default class DNDCard extends Vue {
   @Prop() auth!: string;
   @Prop() uuid!: any;
 
-  public drag(e: any) {
-    const target = e.target;
-    e.dataTransfer.setData('card_id', target.id);
+  public styleObj = {
+    backgroundColor: '#edf0f9',
+    opacity: 0,
+    border: '2px solid red',
+    zIndex: 3,
+    position: 'relative',
+    view: 'hidden'
   }
+
+  public drag(e: any) {
+    // e.target.style.opacity = this.styleObj.opacity;
+    // e.target.style.backgroundColor = this.styleObj.backgroundColor;
+    // e.target.style.border = this.styleObj.border;
+    // e.target.style.zIndex = this.styleObj.zIndex;
+    // e.target.style.visibility = this.styleObj.view;
+    // e.target.style.position = this.styleObj.position;
+  }
+
+  public dragstart(e: any) {
+    const target = e.target;
+    e.dataTransfer.setData('card', target.id);  
+  }
+
+  public dragend(e: any) {
+    e.target.style.opacity
+    if (e.target.classList.contains('over')) {
+      e.target.classList.remove('over');
+    }
+  }
+  public dragover(e: any) {
+    e.target.style.opacity = 1;
+  }
+
 
 }
 </script>

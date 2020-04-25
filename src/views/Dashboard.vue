@@ -16,8 +16,8 @@
       </div>
 
       <div class="dashboard">
-        <div v-for="(itme, i) of listDashboard" :key="i">
-          <dndlist :title="'Test 0001'" :listItems="listDashboard[i].listDranAndDrop"/>
+        <div v-for="(item, i) of listDashboard" :key="i">
+          <dndlist :title="'Test 0001'" :listItems="listDashboard[i].listDranAndDrop" />
         </div>
       </div>
 
@@ -114,20 +114,6 @@ export default class Dashboard extends Vue {
         {
           id: 'Y6ASD954FD6JS717RHF763',
           description: 'Test 001',
-          auth: 'Rafael Carvalho'
-        }
-      ]
-    },
-    {
-      listDranAndDrop: [
-        {
-          id: 'Y6ASD954FD6JS717RHF763',
-          description: 'Test 001',
-          auth: 'Rafael Carvalho'
-        },
-        {
-          id: 'Y6ASD954FD6JS712322HF12',
-          description: 'Test 002',
           auth: 'Rafael Carvalho'
         }
       ]

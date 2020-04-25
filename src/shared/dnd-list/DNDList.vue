@@ -53,7 +53,15 @@
         </a>
       </li>
     </ul>
-    <button class="added">
+    <form class="plus" v-if="newItem" @submit.prevent="dndForm">
+      <input type="text" id="item" class="input-control" 
+        placeholder="Added Item" v-model="innerValue" name="innerValue"
+        autocomplete="off" autofocus="on">
+      <button type="submit" class="submited" id="dnd-add-item">
+        <i class="fa fa-plus"></i>
+      </button>
+    </form>
+    <button id="dnd-add-card" class="added" @click="newItem = !newItem"  v-if="!newItem">
       <i class="fa fa-plus"></i>
       <span>Adicionar outro cartão</span>
     </button>
@@ -64,22 +72,33 @@
 
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import { Prop } from 'vue-property-decorator';
+import { Prop, Emit } from 'vue-property-decorator';
 import { DranAndDrop } from '../../model/dndElement';
 
 @Component({})
 export default class DNDList extends Vue {
 
   @Prop() title?: string;
-  @Prop() listItems?: DranAndDrop [];
+  @Prop() listItems!: DranAndDrop [];
 
+  public innerValue: string = '';
+  public newItem = false;
   public openDrop = false;
-
 
   public letras = (item: string) => {
     let data = null;
     item.replace(' ', (r, b, a) => data = a.charAt(0) + a.charAt(b + 1));
     return data;
+  }
+
+  public dndForm() {
+    this.listItems.push({
+      id: `GT67201HGH981B-9NBI8987GH90-NU9N${this.innerValue.length}`,
+      description: `${this.innerValue}`,
+      auth: `Test ${this.innerValue.length}`
+    });
+    this.innerValue = '';
+    this.newItem = false;
   }
 
 }

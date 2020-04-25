@@ -189,6 +189,30 @@
     }
     
   }
+
+  .plus {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $btn_disabled_hover;
+    @extend %input;
+    .input-control {
+      height: 20px;
+      margin: 10px 0 10px 10px;
+    }
+    .submited {
+      width: 30px;
+      height: 30px;
+      @extend %btn-center;
+      margin-right: 10px;
+      &:hover {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
   .added {
     width: 100%;
     height: 40px;

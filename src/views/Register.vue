@@ -9,9 +9,7 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 
-
-import RegisterForm from '../components/RegisterForm.vue';
-
+import RegisterForm from '@/components/RegisterForm.vue';
 
 @Component({
   components: {

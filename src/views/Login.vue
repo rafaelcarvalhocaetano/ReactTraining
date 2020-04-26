@@ -13,11 +13,11 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 
-import Items from '../components/Items.vue';
-import Header from '../components/Header.vue';
-import FormLogin from '../components/FormLogin.vue';
+import Items from '@/components/Items.vue';
+import Header from '@/components/Header.vue';
+import FormLogin from '@/components/FormLogin.vue';
 
-import { Item } from '../model/List';
+import { Item } from '@/model/List';
 
 @Component({
   components: {
@@ -28,7 +28,7 @@ import { Item } from '../model/List';
 })
 export default class Login extends Vue {
 
-  public imgURL = '../assets/__logo/pipefy.png';
+  public imgURL = '@/assets/__logo/pipefy.png';
   public listItems: Item [] = [
     {
       name: 'process',
@@ -50,6 +50,6 @@ export default class Login extends Vue {
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   @import './Login.scss';
 </style>

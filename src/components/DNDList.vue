@@ -1,5 +1,5 @@
 <template>
-  <div class="list">
+  <div class="list-container">
     <div class="added-title">
       <h2>{{ title }}</h2>
       <button class="btn-action" @click="openDrop = !openDrop">
@@ -7,8 +7,10 @@
       </button>
       <Actions v-if="openDrop" :listAction="listAct" @close="getAction" />
     </div>
-    <ul class="dnd-list"  @dragover.prevent  @drop.prevent="drop">
-      <li class="dnd-item" v-for="(item, i) of listItems" :key="i" :uuid="item.id">
+    <ul class="dnd-list"  @dragover.prevent=""  @drop.prevent="drop" >
+      <li class="dnd-item" v-for="(item, i) of listItems" :key="i" :uuid="item.id" 
+        @dragover.prevent="dragover($event, item)"
+        @drag="drag">
         <dndcard 
           :uuid="item.id" :descriptionCard="item.description" 
           :auth="letras(item.auth)"/>
@@ -35,10 +37,10 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Prop, Emit } from 'vue-property-decorator';
 
-import { DranAndDrop } from '../model/dndElement';
-import DNDCard from '../shared/dnd-card/DNDCard.vue';
-import Actions from '../shared/actions/Actions.vue';
-import { Action } from '../model/List';
+import { DranAndDrop } from '@/model/dndElement';
+import DNDCard from '@/shared/dnd-card/DNDCard.vue';
+import Actions from '@/shared/actions/Actions.vue';
+import { Action } from '@/model/List';
 
 @Component({
   components: {
@@ -51,6 +53,8 @@ export default class DNDList extends Vue {
   @Prop() title?: string;
   @Prop() listItems!: DranAndDrop [];
   @Prop() index!: number;
+  public oldIndex = null;
+  public newIndex = null;
 
   public innerValue: string = '';
   public newItem = false;
@@ -100,17 +104,49 @@ export default class DNDList extends Vue {
     this.openDrop = false;
   }
 
-  public drop(e: any) {
+  public cardIdNumber = null;
+  public idIndex: DranAndDrop = {
+    id: '',
+    description: '',
+    auth: ''
+  };
+  
+  public drop(e: DragEvent | any) {
     const card_id = e.dataTransfer.getData('card');
-    const card: any = document.getElementById(card_id);
+    e.target.classList.add('rota');
+
+    this.cardIdNumber = card_id;
+    const card = document.getElementById(card_id) as HTMLElement;
     const data = {
       id: card.id,
       index: this.index
     }
     this.dnd(data);
     // ev.target.appendChild(card);
-
   }
+
+  public dragover(e: any, item: DranAndDrop) {
+
+    const oldIndex = this.listItems.indexOf(this.idIndex);
+    const newIndex = this.listItems.indexOf(item);
+    // const ters = this.changePosition(this.listItems, oldIndex, newIndex);
+    // this.listItems[newIndex] = this.idIndex;
+    this.idIndex = {
+      id: '',
+      description: '',
+      auth: ''
+    };
+
+    
+  }
+
+  public drag(e: string) {
+    this.idIndex = this.listItems.filter(x => x.id === e) as any;
+  }
+
+  public changePosition(arr: DranAndDrop [], from: number, to: number): DranAndDrop [] {
+    return arr.splice(from, 0, arr.splice(to, 1)[0]);
+  };
 }
 </script>
 

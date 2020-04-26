@@ -6,65 +6,11 @@
   height: 100%;
   background-color: $background;
   display: flex;
-  .list-dashboard {
-    width: calc(100% - 70px);
-    position: absolute;
-    top: 100px;
-    left: 70px;
-    display: flex;
-    .item {
-      h2 {
-        letter-spacing: 2px;
-        font-size: 26px;
-        opacity: .8;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-      span {
-        font-size: 14px;
-        font-weight: 600;
-        opacity: .6;
-        letter-spacing: 1px;
-      }
-      .element {
-        margin-top: 60px;
-        width: 200px;
-        height: 120px;
-        border-radius: 6px;
-        border: 2px dashed #CCC;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 20px;
-        span {
-          font-size: 14px;
-          letter-spacing: 2px;
-          font-weight: bold;
-          opacity: 0.7;
-        }
-        .btn-add {
-          border: none;
-          width: 50px;
-          height: 50px;
-          color: darken($primary, 10);
-          background-color: #FFF;
-          border-radius: 7px;
-          cursor: pointer;
-          &:focus {
-            outline: none;
-          }
-          &:active {
-            border: 2px dashed $primary;
-          }
-        }
-      }
-    }
-    .dashboard {
-      margin: 0 20px;
-      padding: 10px;
-      max-width: 78%;
-      overflow-x: scroll;
-      overflow-y: hidden;
-    }
+  .slide-enter, .slide-leave-to {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  .slide-enter-active, .slide-leave-active {
+    transition: all 0.3s;
   }
 }

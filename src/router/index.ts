@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -21,7 +22,18 @@ const routes = [
   {
     path: '/dashboard',
     name: 'Dashboard',
-    component: () => import('../views/Dashboard.vue')
+    component: () => import('../views/Dashboard.vue'),
+    redirect: () => '/dashboard/kanban',
+    children: [
+      {
+        path: 'kanban',
+        component: () => import('../views/Kanban.vue')
+      },
+      {
+        path: 'configuration',
+        component: () => import('../views/Configuration.vue')
+      }
+    ]
   }
 ]
 

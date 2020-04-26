@@ -73,7 +73,8 @@ export default class DNDCard extends Vue {
     }
   }
   public dragover(e: any) {
-    e.target.style.opacity = 1;
+    
+
   }
 
 

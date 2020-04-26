@@ -1,0 +1,13 @@
+@import '@/assets/styles/colors.scss';
+@import '@/assets/styles/mix.scss';
+
+.kanban {
+  padding-left: 10px;
+  max-width: 98%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  position: absolute;
+  top: 70px;
+  left: 70px;
+}

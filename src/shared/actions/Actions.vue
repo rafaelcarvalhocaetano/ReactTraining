@@ -18,7 +18,6 @@ import Component from 'vue-class-component';
 
 import { Prop, Emit } from 'vue-property-decorator';
 
-
 @Component({})
 export default class Actions extends Vue {
 

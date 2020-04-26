@@ -1,6 +1,6 @@
 <template>
   <div class="kanban">
-    <div v-for="(item, i) of listDashboard" :key="i">
+    <div class="mbl" v-for="(item, i) of listDashboard" :key="i">
       <dndlist :title="'Test 0001'" :index="i" :listItems="listDashboard[i].listDranAndDrop" @dnd="dataDND" />
     </div>
   </div>
@@ -65,6 +65,15 @@ export default class Kanban extends Vue {
         {
           id: '17c27676-b514-4dad-9769-a53133e',
           description: 'Test 002',
+          auth: 'Rafael Carvalho'
+        }
+      ]
+    },
+    {
+      listDranAndDrop: [
+        {
+          id: 'a482e327-c866-4b85-9631-20d2bb',
+          description: 'Test 001',
           auth: 'Rafael Carvalho'
         }
       ]

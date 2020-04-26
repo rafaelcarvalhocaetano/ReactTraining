@@ -6,11 +6,38 @@
   height: 100%;
   background-color: $background;
   display: flex;
+  // flex-direction: column;
+  // .hdf {
+  //   position: relative;
+  //   width: 100vw;
+  // }
+  // .mdl {
+  //   width: 100vw;
+  // }
   .slide-enter, .slide-leave-to {
     transform: translateX(-50px);
     opacity: 0;
   }
   .slide-enter-active, .slide-leave-active {
     transition: all 0.3s;
+  }
+}
+@media (min-width: 360px) and (max-width: 760px) {
+  .dashboard {
+    width: 100%;
+    height: 100%;
+    background-color: $background;
+    display: flex;
+    .sdn {
+      height: 100%;
+      width: 100%;
+    }
+    .slide-enter, .slide-leave-to {
+      transform: translateX(-50px);
+      opacity: 0;
+    }
+    .slide-enter-active, .slide-leave-active {
+      transition: all 0.3s;
+    }
   }
 }

@@ -2,12 +2,19 @@
 @import '@/assets/styles/mix.scss';
 
 .kanban {
-  padding-left: 10px;
-  max-width: 98%;
   overflow-x: scroll;
+  width: 100%;
+  padding: 0;
   overflow-y: hidden;
   display: flex;
   position: absolute;
   top: 70px;
-  left: 70px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  @media (max-width: 1440px) {
+    justify-content: flex-start;
+    padding: 0 2%;
+    width: 95%;
+  }
 }

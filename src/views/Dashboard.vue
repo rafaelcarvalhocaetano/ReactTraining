@@ -1,12 +1,10 @@
 <template>
   <div class="dashboard">
-    <sidenav  @options="getOptions" />
-    <Header :type="2" />
-    <div>
-      <transition name="slide" mode="out-in">
-        <router-view ></router-view>
-      </transition>
-    </div>
+    <Sidenav  @options="getOptions" :openMenu="open"/>
+    <Header :type="2" @emitOpenMenu="openMenu" class="hdf"/>
+    <transition name="slide" mode="out-in">
+      <router-view ></router-view>
+    </transition>
   </div>
 </template>
 
@@ -22,14 +20,20 @@ import Header from '@/shared/header/Header.vue';
 
 @Component({
   components: {
-    sidenav: Sidenav,
+    Sidenav: Sidenav,
     Header: Header,
   }
 })
 export default class Dashboard extends Vue {
 
+  public open: boolean = false;
+
   public getOptions(data: string): void {
     this.$router.push(`${data}`);
+  }
+  public openMenu(data: boolean) {
+    console.log("Dashboard -> openMenu -> data", data)
+    this.open = data;
   }
   
 }

@@ -13,8 +13,6 @@
     border-radius: 4px;
     padding: 0 10px;
     .card-title {
-      top: 0;
-      position: sticky;
       height: auto;
       font-size: 14px;
       font-weight: bold;
@@ -35,6 +33,8 @@
       .card-icons {
         cursor: pointer;
         height: 30px;
+        display: flex;
+        align-items: center;
         .btn {
           width: 25px;
           height: 25px;

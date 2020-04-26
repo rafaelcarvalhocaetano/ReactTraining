@@ -1,11 +1,13 @@
 <template>
-  <ul class="sidenav">
-    <li class="sidenav-item" v-for="(item, i) of listIcon" :key="i" :class="{'selected': indexSelect === i}">
-      <a class="sidenav-action" @click="indexSelect = i; sendOptions(item.router)">
-        <i :class="item.icon"></i>
-      </a>
-    </li>
-  </ul>
+  <transition name="slide" mode="out-in">
+    <ul class="sidenav" v-if="openMenu">
+      <li class="sidenav-item" v-for="(item, i) of listIcon" :key="i" :class="{'selected': indexSelect === i}">
+        <a class="sidenav-action" @click="indexSelect = i; sendOptions(item.router)">
+          <i :class="item.icon"></i>
+        </a>
+      </li>
+    </ul>
+  </transition>
 </template>
 
 <script lang="ts">
@@ -18,6 +20,8 @@ import { Emit, Prop } from 'vue-property-decorator';
 @Component({})
 export default class Sidenav extends Vue {
 
+  @Prop() openMenu = false;
+  
   public listIcon = [
     {
       icon: 'fas fa-grip-horizontal',

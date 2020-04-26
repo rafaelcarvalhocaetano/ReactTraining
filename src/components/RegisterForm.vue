@@ -47,22 +47,23 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 
-import Selection from '@/shared/select/Select.vue';
-
-import { List, ItemCard, Profile } from '@/model/List';
-
 import ListCards from './ListCards.vue';
-import ProgressCount from './ProgressCount.vue';
 import Enterprise from './Enterprise.vue';
 import Process from './Process.vue';
 import ProfileForm from './ProfileForm.vue';
+
+import Selection from '@/shared/select/Select.vue';
+import ProgressCount from '@/shared/progress-count/ProgressCount.vue';
+
+import { List, ItemCard, Profile } from '@/model/List';
+
 
 @Component({
   components: {
     Selection: Selection,
     ListCards: ListCards,
     ProgressCount: ProgressCount,
-    enterprise: Enterprise,
+    Enterprise: Enterprise,
     Process: Process,
     ProfileForm: ProfileForm
   }

@@ -29,7 +29,7 @@ import { Item } from '../model/List';
 })
 export default class Login extends Vue {
 
-  public imgURL = '@/assets/__logo/pipefy.png';
+  public imgURL = '@/assets/log/pipefy.png';
   public listItems: Item [] = [
     {
       name: 'process',

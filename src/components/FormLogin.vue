@@ -23,7 +23,7 @@
             <span>Github</span>
           </button>
           <button class="btn-google">
-            <img src="@/assets/__images/google.png" class="form-img" alt="Google">
+            <img src="@/assets/images/google.png" class="form-img" alt="Google">
             <span>Google</span>
           </button>   
         </div>  

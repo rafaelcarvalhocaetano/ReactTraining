@@ -14,11 +14,11 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 
-import Header from '@/components/Header.vue';
 import Modal from '@/shared/modal/Modal.vue';
 
 import { DranAndDropList } from '@/model/dndElement';
 import Sidenav from '@/shared/sidenav/Sidenav.vue';
+import Header from '@/shared/header/Header.vue';
 
 @Component({
   components: {

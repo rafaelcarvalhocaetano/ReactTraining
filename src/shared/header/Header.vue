@@ -1,6 +1,6 @@
 <template>
    <div class="header" :class="{'tp': type === 2}">
-    <img src="../assets/__logo/pipefy_brc.png" alt="Pipefy">
+    <img src="@/assets/__logo/pipefy_brc.png" alt="Pipefy">
     <p v-if="type === 2">Drag And Drop</p>
   </div>
 </template>
@@ -17,6 +17,6 @@ export default class Header extends Vue {
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   @import './Header.scss';
 </style>

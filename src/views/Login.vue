@@ -13,17 +13,18 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 
-import Items from '@/components/Items.vue';
-import Header from '@/components/Header.vue';
-import FormLogin from '@/components/FormLogin.vue';
+import Items from '../components/Items.vue';
+import Header from '../shared/header/Header.vue';
+import FormLogin from '../components/FormLogin.vue';
 
-import { Item } from '@/model/List';
+import { Item } from '../model/List';
+
 
 @Component({
   components: {
-    Header,
-    Items,
-    FormLogin
+    Header: Header,
+    Items: Items,
+    FormLogin: FormLogin
   }
 })
 export default class Login extends Vue {

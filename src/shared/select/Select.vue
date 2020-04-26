@@ -19,7 +19,7 @@ import Vue from 'vue'
 import Component from 'vue-class-component';
 
 import { Prop, Emit } from 'vue-property-decorator';
-import { List } from '../../model/List';
+import { List } from '@/model/List';
 
 
 @Component({})

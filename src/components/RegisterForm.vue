@@ -47,9 +47,9 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 
-import Selection from '../shared/select/Select.vue';
+import Selection from '@/shared/select/Select.vue';
 
-import { List, ItemCard, Profile } from '../model/List';
+import { List, ItemCard, Profile } from '@/model/List';
 
 import ListCards from './ListCards.vue';
 import ProgressCount from './ProgressCount.vue';
@@ -59,12 +59,12 @@ import ProfileForm from './ProfileForm.vue';
 
 @Component({
   components: {
-    Selection,
-    ListCards,
-    ProgressCount,
-    Enterprise,
-    Process,
-    ProfileForm
+    Selection: Selection,
+    ListCards: ListCards,
+    ProgressCount: ProgressCount,
+    enterprise: Enterprise,
+    Process: Process,
+    ProfileForm: ProfileForm
   }
 })
 export default class RegisterForm extends Vue {
@@ -175,6 +175,6 @@ export default class RegisterForm extends Vue {
 } 
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
   @import './RegisterForm.scss';
 </style>

@@ -16,8 +16,8 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 
 import { Prop } from 'vue-property-decorator';
-import { ItemCard } from '../model/List';
-import Card from '../shared/card/Card.vue';
+import { ItemCard } from '@/model/List';
+import Card from '@/shared/card/Card.vue';
 
 @Component({
   components: {

@@ -23,7 +23,7 @@
             <span>Github</span>
           </button>
           <button class="btn-google">
-            <img src="../assets/__images/google.png" class="form-img" alt="Google">
+            <img src="@/assets/__images/google.png" class="form-img" alt="Google">
             <span>Google</span>
           </button>   
         </div>  
@@ -65,6 +65,6 @@ export default class FormLogin extends Vue {
 }
 </script>
 
-<style scoped lang="sass">
+<style lang="scss" scoped>
   @import './FormLogin.scss';
 </style>

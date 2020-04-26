@@ -18,7 +18,7 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 
 import { Prop, Emit } from 'vue-property-decorator';
-import { ItemCard } from '../../model/List';
+import { ItemCard } from '@/model/List';
 
 @Component({})
 export default class Modal extends Vue {

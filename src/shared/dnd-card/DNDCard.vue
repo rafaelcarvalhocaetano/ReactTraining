@@ -34,7 +34,7 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 
 import { Prop, Emit } from 'vue-property-decorator';
-import { DranAndDrop } from '../../model/dndElement';
+import { DranAndDrop } from '@/model/dndElement';
 
 @Component({})
 export default class DNDCard extends Vue {

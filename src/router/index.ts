@@ -12,26 +12,26 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import('../views/Login.vue')
+    component: () => import('@/views/Login.vue')
   },
   {
     path: '/register',
     name: 'Register',
-    component: () => import('../views/Register.vue')
+    component: () => import('@/views/Register.vue')
   },
   {
     path: '/dashboard',
     name: 'Dashboard',
-    component: () => import('../views/Dashboard.vue'),
+    component: () => import('@/views/Dashboard.vue'),
     redirect: () => '/dashboard/kanban',
     children: [
       {
         path: 'kanban',
-        component: () => import('../views/Kanban.vue')
+        component: () => import('@/views/Kanban.vue')
       },
       {
         path: 'configuration',
-        component: () => import('../views/Configuration.vue')
+        component: () => import('@/views/Configuration.vue')
       }
     ]
   }

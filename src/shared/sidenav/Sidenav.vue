@@ -1,6 +1,6 @@
 <template>
   <transition name="slide" mode="out-in">
-    <ul class="sidenav" v-if="openMenu">
+    <ul class="sidenav">
       <li class="sidenav-item" v-for="(item, i) of listIcon" :key="i" :class="{'selected': indexSelect === i}">
         <a class="sidenav-action" @click="indexSelect = i; sendOptions(item.router)">
           <i :class="item.icon"></i>
@@ -19,8 +19,6 @@ import { Emit, Prop } from 'vue-property-decorator';
 
 @Component({})
 export default class Sidenav extends Vue {
-
-  @Prop() openMenu = false;
   
   public listIcon = [
     {
@@ -51,7 +49,7 @@ export default class Sidenav extends Vue {
 
   public indexSelect = null;
 
-  @Emit('options') public sendOptions(data: any) {
+  @Emit('options') public sendOptions(data: string) {
     return data;
   }
 

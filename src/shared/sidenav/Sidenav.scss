@@ -34,9 +34,9 @@
   }
 }
 
-@media (min-width: 360px) and (max-width: 760px) {
+@media (min-width: 300px) and (max-width: 760px) {
   .sidenav {
-    // position: relative;
+    position: relative;
     width: 15%;
     justify-content: flex-start;
     flex-direction: column;

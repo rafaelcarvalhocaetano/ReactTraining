@@ -1,14 +1,12 @@
 <template>
-  <div class="config">
-    <div class="item">
-      <h2>Databases</h2>
-      <span>Crie registros para usar em seus processos</span>
-      <div class="element">
-        <span>Criar nova tabela</span>
-        <button class="btn-add" @click="openModal = !openModal">
-          <i class="fa fa-plus"></i>
-        </button>
-      </div>
+  <div class="item">
+    <h2>Databases</h2>
+    <span>Crie registros para usar em seus processos</span>
+    <div class="element">
+      <span>Criar nova tabela</span>
+      <button class="btn-add" @click="openModal = !openModal">
+        <i class="fa fa-plus"></i>
+      </button>
     </div>
     <modal v-if="openModal" @action="action"/>
   </div>

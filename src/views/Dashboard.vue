@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard">
-    <Sidenav  @options="getOptions" :openMenu="open"/>
-    <Header :type="2" @emitOpenMenu="openMenu" class="hdf"/>
+    <Sidenav class="smn"  @options="getOptions" v-if="open"/>
+    <Header :type="2" @emitOpenMenu="openMenu" :flag="!open"/>
     <transition name="slide" mode="out-in">
       <router-view ></router-view>
     </transition>
@@ -28,11 +28,11 @@ export default class Dashboard extends Vue {
 
   public open: boolean = false;
 
-  public getOptions(data: string): void {
+  public getOptions(data: any): void {
+    this.open = false;
     this.$router.push(`${data}`);
   }
-  public openMenu(data: boolean) {
-    console.log("Dashboard -> openMenu -> data", data)
+  public openMenu(data: any) {
     this.open = data;
   }
   

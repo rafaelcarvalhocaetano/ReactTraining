@@ -37,8 +37,9 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Prop, Emit } from 'vue-property-decorator';
 
+import DNDCard from '../dnd-card/DNDCard.vue';
+
 import { DranAndDrop } from '@/model/dndElement';
-import DNDCard from '@/shared/dnd-card/DNDCard.vue';
 import Actions from '@/shared/actions/Actions.vue';
 import { Action } from '@/model/List';
 
@@ -48,7 +49,7 @@ import { Action } from '@/model/List';
     Actions: Actions
   }
 })
-export default class DNDList extends Vue {
+export default class DnDColumn extends Vue {
 
   @Prop() title?: string;
   @Prop() listItems!: DranAndDrop [];
@@ -85,7 +86,9 @@ export default class DNDList extends Vue {
 
   public letras = (item: string) => {
     let data = null;
-    item.replace(' ', (r, b, a) => data = a.charAt(0) + a.charAt(b + 1));
+    if (item) {
+      item.replace(' ', (r, b, a) => data = a.charAt(0) + a.charAt(b + 1));
+    }
     return data;
   }
 
@@ -105,12 +108,16 @@ export default class DNDList extends Vue {
   }
 
   public cardIdNumber = null;
+  public getIndexs = [];
+  public getPosition = [];
   public idIndex: DranAndDrop = {
     id: '',
     description: '',
     auth: ''
   };
   
+
+ 
   public drop(e: DragEvent | any) {
     const card_id = e.dataTransfer.getData('card');
     e.target.classList.add('rota');
@@ -122,34 +129,65 @@ export default class DNDList extends Vue {
       index: this.index
     }
     this.dnd(data);
+    this.getIndexs = [];
     // ev.target.appendChild(card);
+
+    // this.listItems.splice(this.newIndex, 0, this.listItems[this.oldIndex])
+
+    const dataOld = this.listItems[this.newIndex];
+    const dataNew = this.listItems[this.oldIndex];
+    // console.log("DnDColumn -> drop -> dataOld", dataOld.description)
+
+    // this.listItems.forEach((x, i) => {
+    //   // if (dataOld.id === x.id) {
+    //   //   this.listItems[this.listItems.indexOf(dataOld)] = this.listItems[this.oldIndex];
+    //   //   x[this.listItems.indexOf(dataNew)] = dataOld;
+    //   // }
+
+    //   if (dataOld.id === x.id) {
+    //     console.log(' di 1 ', i);
+    //     // x.id =  this.listItems[this.oldIndex].id;
+    //     // x.description = this.listItems[this.oldIndex].description;
+    //     // x.auth = this.listItems[this.oldIndex].auth;
+
+    //     // x.id =  this.listItems[this.newIndex].id;
+    //     // x.description = this.listItems[this.newIndex].description;
+    //     // x.auth = this.listItems[this.newIndex].auth;       
+    //     // x[this.listItems.indexOf(dataNew)].id = dataOld.id;
+    //   }
+
+    //   if (dataNew.id === x.id) {
+    //     console.log(' di 2 ', i);
+
+    //   }
+    //   // this.listItems[this.listItems.indexOf(dataOld)] = this.listItems[this.oldIndex];
+    //   // x[this.listItems.indexOf(dataNew)] = dataOld;
+    // });
+    this.changePosition(this.listItems, this.newIndex, this.oldIndex);
+
+    // this.changePosition(this.listItems, this.newIndex, this.oldIndex);
+
+
   }
 
+   
   public dragover(e: any, item: DranAndDrop) {
-
-    const oldIndex = this.listItems.indexOf(this.idIndex);
-    const newIndex = this.listItems.indexOf(item);
-    // const ters = this.changePosition(this.listItems, oldIndex, newIndex);
-    // this.listItems[newIndex] = this.idIndex;
-    this.idIndex = {
-      id: '',
-      description: '',
-      auth: ''
-    };
-
-    
+    this.getIndexs.push(item.id);
+    this.oldIndex = this.listItems.findIndex(x => x.id === this.getIndexs[0]);
+    this.newIndex = this.listItems.findIndex(x => x.id === item.id);
   }
 
-  public drag(e: string) {
-    this.idIndex = this.listItems.filter(x => x.id === e) as any;
+  public drag(e: any) {
+    this.idIndex = this.listItems.filter(x => x === e) as any;
   }
 
   public changePosition(arr: DranAndDrop [], from: number, to: number): DranAndDrop [] {
     return arr.splice(from, 0, arr.splice(to, 1)[0]);
   };
+
 }
 </script>
 
 <style lang="scss" scoped>
-  @import './DNDList.scss';
+  @import './DnDColumn.scss';
 </style>

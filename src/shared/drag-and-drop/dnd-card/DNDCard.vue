@@ -34,14 +34,13 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 
 import { Prop, Emit } from 'vue-property-decorator';
-import { DranAndDrop } from '@/model/dndElement';
 
 @Component({})
 export default class DNDCard extends Vue {
 
-  @Prop() descriptionCard?: string;
-  @Prop() auth!: string;
-  @Prop() uuid!: any;
+  @Prop() descriptionCard: string;
+  @Prop() auth: string;
+  @Prop() uuid: any;
 
   public styleObj = {
     backgroundColor: '#edf0f9',

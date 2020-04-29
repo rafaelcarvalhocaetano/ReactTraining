@@ -4,7 +4,6 @@
 .kanban {
   overflow-x: scroll;
   width: 100%;
-  padding: 0;
   overflow-y: hidden;
   display: flex;
   position: absolute;
@@ -16,8 +15,6 @@
   background-color: $background;
   .mbl {
     padding: 10px;
-  width: 100%;
-
   }
 
   @media (max-width: 1200px) {

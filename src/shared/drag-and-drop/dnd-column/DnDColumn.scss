@@ -54,6 +54,12 @@ $width: 270px;
       background: #ccc;
       border-radius: 8px;
     }
+
+  
+
+    &.over {
+      background-color: red;
+    }
   }
 
   .plus {

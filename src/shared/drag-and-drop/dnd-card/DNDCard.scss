@@ -7,6 +7,16 @@
   background-color: #FFF;
   cursor: grab;
   margin: 5px;
+  &.remove {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    .card-action {
+      display: none;
+      background-color: transparent;
+      border: none;
+    }
+  }
   .card-action {
     display: flex;
     flex-direction: column;
@@ -72,10 +82,10 @@
         }
       }
     }
-    &:active {
-      width: auto;
-      height: auto;
-      cursor: grabbing;
-    }
+    // &:active {
+    //   width: auto;
+    //   height: auto;
+    //   cursor: grabbing;
+    // }
   }
 }

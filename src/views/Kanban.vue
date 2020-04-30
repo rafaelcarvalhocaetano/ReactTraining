@@ -1,7 +1,7 @@
 <template>
   <div class="kanban">
     <div class="mbl" v-for="(item, i) of listDashboard" :key="i">
-      <dndlist :title="'Test 0001'" :index="i" :listItems="listDashboard[i].listDranAndDrop" @dnd="dataDND" />
+      <dndlist :title="listTitle[i]" :index="i" :listItems="listDashboard[i].listDranAndDrop" @dnd="dataDND" />
     </div>
   </div>
 </template>
@@ -20,6 +20,8 @@ import { DranAndDropList } from '@/model/dndElement';
   }
 })
 export default class Kanban extends Vue {
+
+  public listTitle = ['TO DO', 'IN PROGRESS', 'TO VERIFY', 'DONE'];
   
   public listDashboard: DranAndDropList [] = [
     {
@@ -27,7 +29,7 @@ export default class Kanban extends Vue {
         {
           id: 'bc9a5228-f552-44e4-9ce1-8eb3cd5dd72e',
           description: 'RAFAEL',
-          auth: 'Rafael Carvalho'
+          auth: 'Rafael Carvalho',
         },
         {
           id: '39e04df1-dccf-490a-824e-4058678cc0',
@@ -75,7 +77,7 @@ export default class Kanban extends Vue {
         {
           id: 'a482e327-c866-4b85-9631-20d2bb',
           description: 'NÃO TEM',
-          auth: 'Rafael Carvalho'
+          auth: 'Rafael Carvalho',
         }
       ]
     },
@@ -92,17 +94,15 @@ export default class Kanban extends Vue {
   
   public openDrop = false;
 
-  public dataDND(data: any) {
-    let dataT: any = null;
-    let currentIndex: any = null;
-    // this.listDashboard.map((x, i) => {
-    //   x.listDranAndDrop.map((t, ind) => {
-    //     if (data.id === t.id) {
-    //       this.listDashboard[data.index].listDranAndDrop.push(t);
-    //       this.listDashboard[i].listDranAndDrop.splice(ind, 1);
-    //     }
-    //   });
-    // }); 
+  public dataDND(data) {
+    this.listDashboard.forEach((x, i) => {
+      x.listDranAndDrop.forEach((element, index) => {
+        if (data.id === element.id) {
+          this.listDashboard[data.index].listDranAndDrop.push(element);
+          this.listDashboard[i].listDranAndDrop.splice(index, 1);
+        }
+      });
+    }); 
   }
 
 }

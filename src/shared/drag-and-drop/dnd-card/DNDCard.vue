@@ -4,9 +4,7 @@
      :id="uuid"
       draggable="true" 
       @dragstart="dragstart"
-      @dragover="dragover"
-      @dragend="dragend"
-      @drag="drag">
+      @drag.prevent="drag">
       <p class="card-title">{{ descriptionCard ? descriptionCard : 'Not Title' }}</p>
       <div class="card-act">
         <div class="card-icons">
@@ -51,31 +49,37 @@ export default class DNDCard extends Vue {
     view: 'hidden'
   }
 
-  public drag(e: any) {
-    // e.target.style.opacity = this.styleObj.opacity;
-    // e.target.style.backgroundColor = this.styleObj.backgroundColor;
-    // e.target.style.border = this.styleObj.border;
-    // e.target.style.zIndex = this.styleObj.zIndex;
-    // e.target.style.visibility = this.styleObj.view;
-    // e.target.style.position = this.styleObj.position;
-  }
-
-  public dragstart(e: any) {
-    const target = e.target;
-    e.dataTransfer.setData('card', target.id);  
-  }
-
-  public dragend(e: any) {
-    e.target.style.opacity
-    if (e.target.classList.contains('over')) {
-      e.target.classList.remove('over');
+  public handler = (e) => {
+    if (e.preventDefault) {
+      e.preventDefault(); // Necessary. Allows us to drop.
     }
-  }
-  public dragover(e: any) {
-    
+    e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
 
+    return false;
   }
 
+  public drag(e) {
+
+    const dt = document.querySelectorAll('.card-container');
+    [].forEach.call(dt, (x, i) => {
+      x.style.backgroundColor = '#FFF';
+      x.style.color = '#FFF';
+      x.style.width = '230px';
+      x.style.zIndex = '-1';
+      x.style.hegth = '200px';
+      x.style.border = '2px solid red';
+      x.style.position = 'relative';
+      // x.style.transform = 'rotate(20deg)';
+
+      // x.addEventListener('dragover', this.handler, false);
+    });
+  
+  }
+
+  public dragstart(e) {
+    e.target.classList.add('move');
+    e.dataTransfer.setData('card', e.target.id);
+  }
 
 }
 </script>

@@ -5,12 +5,11 @@
       <button class="btn-action" @click="openDrop = !openDrop">
         <i class="fas fa-ellipsis-h"></i>
       </button>
-      <Actions v-if="openDrop" :listAction="listAct" @close="getAction" />
+      <Actions v-if="openDrop" :listAction="listAct" @close="openDrop = false" />
     </div>
     <ul class="dnd-list"  @dragover.prevent=""  @drop.prevent="drop" >
       <li class="dnd-item" v-for="(item, i) of listItems" :key="i" :uuid="item.id" 
-        @dragover.prevent="dragover($event, item)"
-        @drag="drag">
+        @dragover.prevent="dragOver($event, item)">
         <dndcard 
           :uuid="item.id" :descriptionCard="item.description" 
           :auth="letras(item.auth)"/>
@@ -51,9 +50,9 @@ import { Action } from '@/model/List';
 })
 export default class DnDColumn extends Vue {
 
-  @Prop() title?: string;
-  @Prop() listItems!: DranAndDrop [];
-  @Prop() index!: number;
+  @Prop() public title: string;
+  @Prop() public listItems: DranAndDrop [];
+  @Prop() public index: number;
   public oldIndex = null;
   public newIndex = null;
 
@@ -78,9 +77,7 @@ export default class DnDColumn extends Vue {
     }
   ]
 
-  public dataItem = null;
-
-  @Emit('dnd') public dnd(data: any) {
+  @Emit('dnd') public dndEmitter(data: any) {
     return data;
   }
 
@@ -103,87 +100,44 @@ export default class DnDColumn extends Vue {
     this.newItem = false;
   }
 
-  public getAction(data: any) {
-    this.openDrop = false;
-  }
-
   public cardIdNumber = null;
   public getIndexs = [];
-  public getPosition = [];
-  public idIndex: DranAndDrop = {
-    id: '',
-    description: '',
-    auth: ''
-  };
-  
-
  
-  public drop(e: DragEvent | any) {
-    const card_id = e.dataTransfer.getData('card');
-    e.target.classList.add('rota');
-
-    this.cardIdNumber = card_id;
-    const card = document.getElementById(card_id) as HTMLElement;
-    const data = {
-      id: card.id,
-      index: this.index
-    }
-    this.dnd(data);
+  public drop(e) {
     this.getIndexs = [];
-    // ev.target.appendChild(card);
-
-    // this.listItems.splice(this.newIndex, 0, this.listItems[this.oldIndex])
-
+    this.cardIdNumber = e.dataTransfer.getData('card');
+    const card = document.getElementById(this.cardIdNumber) as HTMLElement;
     const dataOld = this.listItems[this.newIndex];
     const dataNew = this.listItems[this.oldIndex];
-    // console.log("DnDColumn -> drop -> dataOld", dataOld.description)
-
-    // this.listItems.forEach((x, i) => {
-    //   // if (dataOld.id === x.id) {
-    //   //   this.listItems[this.listItems.indexOf(dataOld)] = this.listItems[this.oldIndex];
-    //   //   x[this.listItems.indexOf(dataNew)] = dataOld;
-    //   // }
-
-    //   if (dataOld.id === x.id) {
-    //     console.log(' di 1 ', i);
-    //     // x.id =  this.listItems[this.oldIndex].id;
-    //     // x.description = this.listItems[this.oldIndex].description;
-    //     // x.auth = this.listItems[this.oldIndex].auth;
-
-    //     // x.id =  this.listItems[this.newIndex].id;
-    //     // x.description = this.listItems[this.newIndex].description;
-    //     // x.auth = this.listItems[this.newIndex].auth;       
-    //     // x[this.listItems.indexOf(dataNew)].id = dataOld.id;
-    //   }
-
-    //   if (dataNew.id === x.id) {
-    //     console.log(' di 2 ', i);
-
-    //   }
-    //   // this.listItems[this.listItems.indexOf(dataOld)] = this.listItems[this.oldIndex];
-    //   // x[this.listItems.indexOf(dataNew)] = dataOld;
-    // });
-    this.changePosition(this.listItems, this.newIndex, this.oldIndex);
-
-    // this.changePosition(this.listItems, this.newIndex, this.oldIndex);
-
-
+     if (e.target.classList.contains('move')) {
+      e.target.classList.remove('move');
+    }
+    if (dataOld && dataNew) {
+      this.listMoveUpDown(this.listItems, this.newIndex, this.oldIndex);
+    } else {
+      this.dndEmitter({
+        id: card.id,
+        index: this.index
+      });
+    }
+    e.target.classList.remove('over')
+    if (e.target.classList.contains('move')) {
+      e.target.classList.remove('move');
+    }
+    // e.target.appendChild(card);
   }
 
+  private listMoveUpDown(list: DranAndDrop [], from: number, to: number): void {
+    var element = list[from];
+    list.splice(from, 1);
+    list.splice(to, 0, element);
+  }
    
-  public dragover(e: any, item: DranAndDrop) {
+  public dragOver(e: DragEvent, item: DranAndDrop) {
     this.getIndexs.push(item.id);
     this.oldIndex = this.listItems.findIndex(x => x.id === this.getIndexs[0]);
     this.newIndex = this.listItems.findIndex(x => x.id === item.id);
   }
-
-  public drag(e: any) {
-    this.idIndex = this.listItems.filter(x => x === e) as any;
-  }
-
-  public changePosition(arr: DranAndDrop [], from: number, to: number): DranAndDrop [] {
-    return arr.splice(from, 0, arr.splice(to, 1)[0]);
-  };
 
 }
 </script>

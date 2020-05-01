@@ -7,16 +7,16 @@
   background-color: #FFF;
   cursor: grab;
   margin: 5px;
-  &.remove {
-    width: 200px;
-    height: 200px;
-    background-color: red;
-    .card-action {
-      display: none;
-      background-color: transparent;
-      border: none;
-    }
-  }
+  // &.remove {
+  //   width: 200px;
+  //   height: 200px;
+  //   background-color: red;
+  //   .card-action {
+  //     display: none;
+  //     background-color: transparent;
+  //     border: none;
+  //   }
+  // }
   .card-action {
     display: flex;
     flex-direction: column;
@@ -82,10 +82,29 @@
         }
       }
     }
+    // &:before {
+    //   content: '';
+    //   position: relative;
+    //   top: 0;
+    //   left: 0;
+    //   right: 0;
+    //   bottom: 0;
+    //   width: 0;
+    //   transition: all 2s ease;
+    //   background-color: red;
+    //   height: 200px;
+    // }
+   
+    // &:hover:before  {
+    //   width: 100%;
+    //   height: 40px;
+    // }
+
     // &:active {
     //   width: auto;
     //   height: auto;
     //   cursor: grabbing;
     // }
   }
+  
 }

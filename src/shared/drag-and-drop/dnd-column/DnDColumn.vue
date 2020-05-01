@@ -8,7 +8,7 @@
       <Actions v-if="openDrop" :listAction="listAct" @close="openDrop = false" />
     </div>
     <ul class="dnd-list"  @dragover.prevent=""  @drop.prevent="drop" >
-      <li class="dnd-item" v-for="(item, i) of listItems" :key="i" :uuid="item.id" 
+      <li class="dnd-item" v-for="(item, i) of listItems" :key="i" :uuid="item.id"
         @dragover.prevent="dragOver($event, item)">
         <dndcard 
           :uuid="item.id" :descriptionCard="item.description" 
@@ -109,9 +109,6 @@ export default class DnDColumn extends Vue {
     const card = document.getElementById(this.cardIdNumber) as HTMLElement;
     const dataOld = this.listItems[this.newIndex];
     const dataNew = this.listItems[this.oldIndex];
-     if (e.target.classList.contains('move')) {
-      e.target.classList.remove('move');
-    }
     if (dataOld && dataNew) {
       this.listMoveUpDown(this.listItems, this.newIndex, this.oldIndex);
     } else {
@@ -120,9 +117,8 @@ export default class DnDColumn extends Vue {
         index: this.index
       });
     }
-    e.target.classList.remove('over')
-    if (e.target.classList.contains('move')) {
-      e.target.classList.remove('move');
+    if (e.target.classList.contains('move-card')) {
+      e.target.classList.remove('move-card');
     }
     // e.target.appendChild(card);
   }
@@ -133,7 +129,9 @@ export default class DnDColumn extends Vue {
     list.splice(to, 0, element);
   }
    
-  public dragOver(e: DragEvent, item: DranAndDrop) {
+  public dragOver(e: DragEvent | any, item: DranAndDrop) {
+    // e.target.classList.add('move-card');
+    // e.dataTransfer.effectAllowed='move';
     this.getIndexs.push(item.id);
     this.oldIndex = this.listItems.findIndex(x => x.id === this.getIndexs[0]);
     this.newIndex = this.listItems.findIndex(x => x.id === item.id);

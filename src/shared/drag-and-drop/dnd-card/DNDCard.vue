@@ -2,7 +2,7 @@
   <div class="card-container">
     <a class="card-action"
      :id="uuid"
-      draggable="true" 
+      draggable="true"
       @dragstart="dragstart"
       @drag.prevent="drag">
       <p class="card-title">{{ descriptionCard ? descriptionCard : 'Not Title' }}</p>
@@ -62,13 +62,14 @@ export default class DNDCard extends Vue {
 
     const dt = document.querySelectorAll('.card-container');
     [].forEach.call(dt, (x, i) => {
-      x.style.backgroundColor = '#FFF';
-      x.style.color = '#FFF';
-      x.style.width = '230px';
-      x.style.zIndex = '-1';
-      x.style.hegth = '200px';
-      x.style.border = '2px solid red';
-      x.style.position = 'relative';
+      // x.style.backgroundColor = '#FFF';
+      // x.style.color = '#FFF';
+      // x.style.width = '90%';
+      // // x.style.zIndex = '-1';
+      // x.style.height = '100%';
+      // x.style.border = '2px dashed red';
+      // x.style.marginTop = '30px';
+      // x.style.position = 'relative';
       // x.style.transform = 'rotate(20deg)';
 
       // x.addEventListener('dragover', this.handler, false);

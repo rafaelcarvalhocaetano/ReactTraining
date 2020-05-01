@@ -55,11 +55,35 @@ $width: 270px;
       border-radius: 8px;
     }
 
-  
+    .dnd-item {
+      &.move-card {
+        transition: all 300ms ease;
+        margin: 0;
+        &:active {
+          animation: carddd 200ms 200ms alternate ease forwards;
 
-    &.over {
-      background-color: red;
+          &::after {
+            content: '';
+            width: 100px;
+            height: 40px;
+            background-color: red;
+          }
+          &::before {
+            content: '';
+            width: 100px;
+            height: 40px;
+            background-color: blueviolet;
+          }
+        }
+
+        
+        .card-action {
+          // background-color: red;
+        }
+      }
     }
+
+    
   }
 
   .plus {
@@ -115,6 +139,16 @@ $width: 270px;
       background-color: $btn_disabled_hover;
       color: $primary;
     }
+  }
+}
+
+@keyframes carddd {
+  from {
+    height: auto;
+    margin: 0;
+  }
+  to {
+    margin: 30px 0;
   }
 }
 

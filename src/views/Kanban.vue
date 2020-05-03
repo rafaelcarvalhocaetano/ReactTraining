@@ -13,7 +13,7 @@ import Component from 'vue-class-component';
 import DnDColumn from '@/shared/drag-and-drop/dnd-column/DnDColumn.vue';
 
 import { DranAndDropList } from '@/model/dndElement';
-import { State } from 'vuex-class';
+import { State, Getter, Mutation } from 'vuex-class';
 
 @Component({
   components: {
@@ -23,9 +23,15 @@ import { State } from 'vuex-class';
 export default class Kanban extends Vue {
 
   @State('list_title') public listTitle: string [];
-  @State('list_cards') listDashboard: DranAndDropList [];
+  @State('list_cards') public listDashboard: DranAndDropList [];
+
+  @Getter('validatorList') validatorList;
+  @Getter('list_cardsMutation') list_cardsMutation;
+  @Getter('removeCard') removeCard;
+
 
   public openDrop = false;
+
 
   public dataDND(data) {
     this.listDashboard.forEach((x, i) => {
@@ -38,9 +44,8 @@ export default class Kanban extends Vue {
     }); 
   }
 
-  mounted() {
-    console.log(' count 1innerValue ', this.listDashboard)
-  }
+  // mounted() {
+  // }
 
 }
 </script>

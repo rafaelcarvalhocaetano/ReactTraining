@@ -1,6 +1,6 @@
 import { IList } from '@/model/State';
 
-const state: IList = {
+export const state: IList = {
   list_cards: [
     {
       listDranAndDrop: [
@@ -150,21 +150,28 @@ const state: IList = {
       color: '#8e29d6'
     }
   ]
-
-  // são acessadas através do $store dentros dos componentes pai filho e a porra toda
-  // $store.state.contador
 }
 
-const getters = {
+export const getters = {
   validatorList: (state) => {
     return state.list_cards.forEach(element => element.forEach(x => x.description));
   },
   list_cardsMutation: (state) => {
     return state.list_cards.forEach(element => element.forEach(x => x.description));
+  },
+  // clouj
+  removeCard:(state) => {
+    return (id: string) => {
+      return state.list_cards.filter(x => x.id === id);
+    }
   }
+
 }
 
-const mutations = {
+export const mutations = {
+  cardMutations: state => {
+    state.list_title = ['TO DO 2 ', 'IN PROGRESS 2 ', 'TO VERIFY 2 ', 'DONE 2 ']
+  }
 };
 const actions = {
 };
@@ -172,6 +179,7 @@ const modules = {
 };
 
 
-export const dataLocal = {
-  state
-}
+// export const dataLocal = {
+//   state,
+//   getters
+// }

@@ -27,7 +27,7 @@ export default class Select extends Vue {
 
   @Prop() listSelected: any;
 
-  public openDropDown: boolean = false;
+  public openDropDown = false;
   public item = 'Item Selecionado';
   public rotate = 0;
   public typeRotate: number = 0;

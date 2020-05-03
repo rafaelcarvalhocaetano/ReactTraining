@@ -47,7 +47,6 @@ export default class ProfileForm extends Vue {
     }
   }
 
-
   public getForm() {
     this.sendForm(this.profileInput);
   }

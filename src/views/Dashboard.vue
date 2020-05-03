@@ -20,11 +20,6 @@ import Sidenav from '@/shared/sidenav/Sidenav.vue';
 import Header from '@/shared/header/Header.vue';
 
 @Component({
-  computed: {
-    ...mapState({
-      foi: 'contador'
-    })
-  },
   components: {
     Sidenav: Sidenav,
     Header: Header,
@@ -33,12 +28,11 @@ import Header from '@/shared/header/Header.vue';
 export default class Dashboard extends Vue {
 
   public open: boolean = false;
-  public foi: number;
 
   // computed
-  get innerValue() {
-    return this.foi;
-  }
+  // get innerValue() {
+  //   return mapState(['contador'])
+  // }
 
   public getOptions(data: any): void {
     this.open = false;
@@ -46,10 +40,6 @@ export default class Dashboard extends Vue {
   }
   public openMenu(data: any) {
     this.open = data;
-  }
-
-  mounted() {
-    console.log(' contador 1innerValue ', this.innerValue)
   }
   
 }

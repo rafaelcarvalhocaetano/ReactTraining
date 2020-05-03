@@ -18,6 +18,7 @@ import Header from '../shared/header/Header.vue';
 import FormLogin from '../components/FormLogin.vue';
 
 import { Item } from '../model/List';
+import { State } from 'vuex-class';
 
 
 @Component({
@@ -29,24 +30,9 @@ import { Item } from '../model/List';
 })
 export default class Login extends Vue {
 
+  @State('list_items') public listItems: Item [];
+  
   public imgURL = '@/assets/log/pipefy.png';
-  public listItems: Item [] = [
-    {
-      name: 'process',
-      icon: 'fas fa-microchip',
-      description: 'Padronize seu processos e elimine ineficiências.'
-    },
-    {
-      name: 'process',
-      icon: 'far fa-eye',
-      description: 'Saiba tudo o que está acontecendo como o seu processo e resolva os problemas com antecedência.'
-    },
-    {
-      name: 'process',
-      icon: 'far fa-clock',
-      description: 'Seu processo inteiro funcionando sem você mexer o dedo.'
-    }
-  ];
   public title: string = 'Obtenha um impacto maior e traga ordem ao seu processo';
 }
 </script>

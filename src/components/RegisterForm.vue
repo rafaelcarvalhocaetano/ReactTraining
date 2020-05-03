@@ -56,6 +56,7 @@ import Selection from '@/shared/select/Select.vue';
 import ProgressCount from '@/shared/progress-count/ProgressCount.vue';
 
 import { List, ItemCard, Profile } from '@/model/List';
+import { State } from 'vuex-class';
 
 
 @Component({
@@ -73,70 +74,9 @@ export default class RegisterForm extends Vue {
   public name = '';
   public phone = '';
 
-  public list: List [] = [
-    {
-      id: 1,
-      description: 'TI'
-    },
-    {
-      id: 2,
-      description: 'Governança'
-    },
-      {
-      id: 3,
-      description: 'Desenvolvimento'
-    },
-    {
-      id: 4,
-      description: 'Infraestrutura'
-    },
-    {
-      id: 5,
-      description: 'Arquitetura'
-    },
-    {
-      id: 6,
-      description: 'Outros'
-    }
-  ];
+  @State('list_options') public list: List [];
 
-  public listIcons: ItemCard [] = [
-    {
-      icon: 'fas fa-bug',
-      description: 'Acompanhamento de Bugs',
-      color: '#ed5353'
-    },
-    {
-      icon: 'fas fa-desktop',
-      description: 'Chamados de TI',
-      color: '#7b0acc'
-    },
-    {
-      icon: 'fas fa-headset',
-      description: 'Atendimento ao Cliente/Helpdesk',
-      color: '#00b579'      
-    },
-    {
-      icon: 'fas fa-filter',
-      description: 'Pipeline de Vendas',
-      color: '#d6ae1c'
-    },
-    {
-      icon: 'far fa-check-circle',
-      description: 'Lista Simples de Tarefas',
-      color: '#8e29d6'      
-    },
-    {
-      icon: 'fas fa-desktop',
-      description: 'Desenvolvimento de Software',
-      color: '#7b0acc'      
-    },
-    {
-      icon: 'fas fa-chart-line',
-      description: 'Gestão de Experimentos - Growth',
-      color: '#8e29d6'
-    }
-  ];
+  @State('list_icons') public listIcons: ItemCard [];
 
   created() {
     this.interator = 0;

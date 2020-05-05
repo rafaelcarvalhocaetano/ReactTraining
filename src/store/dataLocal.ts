@@ -178,7 +178,6 @@ const actions = {
 const modules = {
 };
 
-
 // export const dataLocal = {
 //   state,
 //   getters

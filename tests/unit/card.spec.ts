@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils'
 
-import Card from '@/shared/actions/Card.vue';
+import Card from '@/shared/card/Card.vue';
 
 describe('Card Component', () => {
 

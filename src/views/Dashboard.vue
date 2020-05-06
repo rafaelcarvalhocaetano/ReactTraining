@@ -29,11 +29,6 @@ export default class Dashboard extends Vue {
 
   public open: boolean = false;
 
-  // computed
-  // get innerValue() {
-  //   return mapState(['contador'])
-  // }
-
   public getOptions(data: any): void {
     this.open = false;
     this.$router.push(`${data}`);

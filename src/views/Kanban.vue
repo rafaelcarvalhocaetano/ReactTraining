@@ -29,9 +29,7 @@ export default class Kanban extends Vue {
   @Getter('list_cardsMutation') list_cardsMutation;
   @Getter('removeCard') removeCard;
 
-
   public openDrop = false;
-
 
   public dataDND(data) {
     this.listDashboard.forEach((x, i) => {
@@ -43,10 +41,6 @@ export default class Kanban extends Vue {
       });
     }); 
   }
-
-  // mounted() {
-  // }
-
 }
 </script>
 

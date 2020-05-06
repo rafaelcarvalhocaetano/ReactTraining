@@ -130,8 +130,6 @@ export default class DnDColumn extends Vue {
   }
    
   public dragOver(e: DragEvent | any, item: DranAndDrop) {
-    // e.target.classList.add('move-card');
-    // e.dataTransfer.effectAllowed='move';
     this.getIndexs.push(item.id);
     this.oldIndex = this.listItems.findIndex(x => x.id === this.getIndexs[0]);
     this.newIndex = this.listItems.findIndex(x => x.id === item.id);

@@ -13,13 +13,11 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 
-import Items from '../components/Items.vue';
-import Header from '../shared/header/Header.vue';
-import FormLogin from '../components/FormLogin.vue';
-
-import { Item } from '../model/List';
 import { State } from 'vuex-class';
-
+import Header from '../../../shared/header/Header.vue';
+import Items from '../../../components/Items.vue';
+import FormLogin from '../../../components/FormLogin.vue';
+import { Item } from '../../../model/List';
 
 @Component({
   components: {

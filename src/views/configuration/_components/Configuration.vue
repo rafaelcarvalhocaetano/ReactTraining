@@ -17,8 +17,8 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Emit } from 'vue-property-decorator';
+import Modal from '../../../shared/modal/Modal.vue';
 
-import Modal from '@/shared/modal/Modal.vue';
 
 @Component({
   components: {

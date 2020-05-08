@@ -10,10 +10,10 @@
 
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import DnDColumn from '@/shared/drag-and-drop/dnd-column/DnDColumn.vue';
 
-import { DranAndDropList } from '@/model/dndElement';
 import { State, Getter, Mutation } from 'vuex-class';
+import DnDColumn from '../../../shared/drag-and-drop/dnd-column/DnDColumn.vue';
+import { DranAndDropList } from '../../../model/dndElement';
 
 @Component({
   components: {

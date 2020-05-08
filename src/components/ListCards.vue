@@ -17,11 +17,11 @@ import Component from 'vue-class-component';
 
 import { Prop } from 'vue-property-decorator';
 import { ItemCard } from '@/model/List';
-import Card from '@/shared/card/Card.vue';
+import Card from '../shared/card/Card.vue';
 
 @Component({
   components: {
-    Card
+    card: Card
   }
 })
 export default class ListCards extends Vue {

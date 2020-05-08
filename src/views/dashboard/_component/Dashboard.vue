@@ -13,11 +13,8 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 
 import { mapState, mapGetters } from 'vuex';
-
-import Modal from '@/shared/modal/Modal.vue';
-import { DranAndDropList } from '@/model/dndElement';
-import Sidenav from '@/shared/sidenav/Sidenav.vue';
-import Header from '@/shared/header/Header.vue';
+import Sidenav from '../../../shared/sidenav/Sidenav.vue';
+import Header from '../../../shared/header/Header.vue';
 
 @Component({
   components: {

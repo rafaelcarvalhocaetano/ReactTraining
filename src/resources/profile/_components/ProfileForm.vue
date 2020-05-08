@@ -28,7 +28,7 @@ import Component from 'vue-class-component';
 import { Emit, Prop } from 'vue-property-decorator';
 import { Profile } from '@/model/List';
 
-@Component({})
+@Component
 export default class ProfileForm extends Vue {
 
   @Prop() titleProfile?: string;

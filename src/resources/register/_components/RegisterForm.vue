@@ -38,7 +38,7 @@
       @sendForm="getForm"
       @Interator="addList" />
 
-    <ListCards :list="listIcons" v-if="interator === 5" />
+    <ListCards :listagem="listIcons" v-if="interator === 5" />
   
   </div>
 </template>
@@ -76,16 +76,13 @@ export default class RegisterForm extends Vue {
   @State('list_options') public list: List [];
 
   @State('list_icons') public listIcons: ItemCard [];
-
+  
   created() {
     this.interator = 0;
   }
 
   public progressAct() {
-    console.log(' in ', this.interator);
     this.interator += 1;
-    console.log(' in ', this.interator);
-
   }
 
   getValue(event: string) {
@@ -100,7 +97,6 @@ export default class RegisterForm extends Vue {
 
   getProcess(data: boolean) {
     this.interator = 2;
-    console.log(' processo ', data);
   }
 
   getForm(data: Profile) {

@@ -1,7 +1,7 @@
 <template>
   <div class="card">
-    <i :class="dataCards.icon" :style="{'color': dataCards.color}"></i>
-    <h3 class="description">{{ dataCards.description }}</h3>
+    <i :class="dataCard.icon" :style="{'color': dataCard.color}"></i>
+    <h3 class="description">{{ dataCard.description }}</h3>
   </div>  
 </template>
 
@@ -16,7 +16,11 @@ import { ItemCard } from '@/model/List';
 @Component({})
 export default class Card extends Vue {
   
-  @Prop() dataCards?: ItemCard;
+  @Prop() dataCard: ItemCard;
+
+  created() {
+    console.log(' data 2 ', this.dataCard);
+  }
 }
 </script>
 

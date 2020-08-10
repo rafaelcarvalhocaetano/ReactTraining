@@ -2,9 +2,9 @@
   <div class="list">
     <p>Escolha um template para começar</p>
     <ul class="card-list">
-      <li class="card-item" v-for="(item, index) of list" :key="index">
+      <li class="card-item" v-for="(item, index) of listagem" :key="index">
         <a class="card-action" @click="routerAct">
-          <Card :dataCards.sync="item"/>
+          <Card :dataCard="item"/>
         </a>
       </li>
     </ul>
@@ -21,11 +21,12 @@ import Card from '../shared/card/Card.vue';
 
 @Component({
   components: {
-    card: Card
+    Card: Card
   }
 })
 export default class ListCards extends Vue {
-  @Prop() list?: ItemCard [];
+
+  @Prop() listagem?: ItemCard [];
 
   public routerAct() {
     this.$router.push('/dashboard');
